@@ -10,8 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap5/css/bootstrap.css"/>
 	<script type="text/javascript" src="bootstrap5/js/bootstrap.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-	<link href="fontawesome/css/all.css" rel="stylesheet">
+	<link el="stylesheet" href="fontawesome/css/all.css">
 	<script src="js/app.js"></script>
+	<link rel="stylesheet" href="style/app.css">
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -24,9 +25,8 @@
 		<hr style="border-top:1px dotted #ccc;"/>
 		<div class="col-md-8 mx-auto">
 			<?php
-				$alert = $_SESSION["alert"];
-
-				if (isset($alert)):
+				if (isset($_SESSION["alert"])):
+					$alert = $_SESSION["alert"];
 			?>
 
 				<div class="alert alert-<?php echo $alert["type"] ?> msg">
