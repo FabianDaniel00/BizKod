@@ -18,6 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap5/css/bootstrap.css"/>
 	<script type="text/javascript" src="bootstrap5/js/bootstrap.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+	<link href="fontawesome/css/all.css" rel="stylesheet">
+	<script src="js/app.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default">

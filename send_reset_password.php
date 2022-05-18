@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap5/css/bootstrap.css"/>
 	<script type="text/javascript" src="bootstrap5/js/bootstrap.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+	<link href="fontawesome/css/all.css" rel="stylesheet">
+	<script src="js/app.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -26,17 +28,11 @@
 				$alert = $_SESSION["alert"];
 
 				if (isset($alert)):
-					$alert_type = $alert["type"];
 			?>
-				<div class="alert alert-<?php echo $alert_type ?> msg">
+
+				<div class="alert alert-<?php echo $alert["type"] ?> msg">
 					<?php echo $alert["content"] ?>
 				</div>
-
-				<script>
-					setTimeout(() => {
-						document.querySelector('.msg').remove();
-					}, <?php echo $alert_type == "info" ? 5000 : 20000 ?>);
-				</script>
 
 			<?php
 				endif;
