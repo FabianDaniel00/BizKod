@@ -43,33 +43,36 @@
               ];
               $conn = null;
 
-              header("location: reset_password.php");
+              return header("location: reset_password.php");
             } else {
               $_SESSION["alert"] = [
                 "content" => "Something went wrong.",
                 "type" => "danger",
               ];
+              $_SESSION["inputs"]["email"] = $email;
               $conn = null;
 
-              header("location: send_reset_password.php");
+              return header("location: send_reset_password.php");
             }
           } catch(PDOException $e) {
             $_SESSION["alert"] = [
               "content" => $e->getMessage(),
               "type" => "danger",
             ];
+            $_SESSION["inputs"]["email"] = $email;
             $conn = null;
 
-            header("location: send_reset_password.php");
+            return header("location: send_reset_password.php");
           }
         } else {
           $_SESSION["alert"] = [
             "content" => "You need to verify your email first.",
             "type" => "danger",
           ];
+          $_SESSION["inputs"]["email"] = $email;
           $conn = null;
 
-          header("location: send_reset_password.php");
+          return header("location: send_reset_password.php");
         }
       } else {
         $_SESSION["alert"] = [
@@ -78,7 +81,7 @@
         ];
         $conn = null;
 
-        header("location: reset_password.php");
+        return header("location: reset_password.php");
       }
     } else {
       $_SESSION["alert"] = [
@@ -87,7 +90,7 @@
 			];
 			$conn = null;
 
-			header("location: send_reset_password.php");
+			return header("location: send_reset_password.php");
     }
   }
 ?>

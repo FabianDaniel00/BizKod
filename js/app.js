@@ -13,8 +13,19 @@ const formLoading = () => {
 
 const clearAlert = () => {
 	document.querySelectorAll('.msg').forEach(alert => {
+		alert.classList.remove('d-none');
+		alert.classList.add('slide-in');
+
+		alert.onanimationend = () => {
+			alert.classList.remove('slide-in');
+
+			if (alert.classList.contains('slide-out')) {
+				alert.remove();
+			}
+		}
+
 		setTimeout(() => {
-			alert.remove();
+			alert.classList.add('slide-out');
 		}, alert.classList.contains('alert-info') ? 5000 : 20000);
 	});
 }

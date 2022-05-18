@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap5/css/bootstrap.css"/>
 	<script type="text/javascript" src="bootstrap5/js/bootstrap.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-	<link el="stylesheet" href="fontawesome/css/all.css">
+	<link rel="stylesheet" href="fontawesome/css/all.css">
 	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="style/app.css">
 </head>
@@ -29,14 +29,19 @@
 					$alert = $_SESSION["alert"];
 			?>
 
-				<div class="alert alert-<?php echo $alert["type"] ?> msg">
-					<?php echo $alert["content"] ?>
+				<div class="msg d-none">
+					<div class="alert alert-<?php echo $alert["type"] ?>">
+						<?php echo $alert["content"] ?>
+					</div>
 				</div>
 
 			<?php
 				endif;
 
 				unset($_SESSION["alert"]);
+
+				$has_inputs = isset($_SESSION["inputs"]);
+				$inputs = $has_inputs ? $_SESSION["inputs"] : null;
 			?>
 
 			<form action="register_query.php" method="POST">
@@ -45,27 +50,27 @@
 
 				<div class="form-group mb-3">
 					<label class="form-label">Email</label>
-					<input type="email" class="form-control" name="email" placeholder="example@mail.com" required />
+					<input type="email" class="form-control" name="email" placeholder="example@mail.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
 				</div>
 
 				<div class="form-group mb-3">
 					<label class="form-label">Firstname</label>
-					<input type="text" class="form-control" name="firstname" placeholder="Jon" required />
+					<input type="text" class="form-control" name="firstname" placeholder="Jon" value="<?php echo $has_inputs ? $inputs["firstname"] : ""; ?>" required />
 				</div>
 
 				<div class="form- mb-3">
 					<label class="form-label">Lastname</label>
-					<input type="text" class="form-control" name="lastname" placeholder="Doe" required />
+					<input type="text" class="form-control" name="lastname" placeholder="Doe" value="<?php echo $has_inputs ? $inputs["lastname"] : ""; ?>" required />
 				</div>
 
 				<div class="form-group mb-3">
 					<label class="form-label">Password</label>
-					<input type="password" class="form-control" name="password" placeholder="password..." required />
+					<input type="password" class="form-control" name="password" placeholder="password..." minlength="6" required />
 				</div>
 
 				<div class="form-group mb-3">
 					<label class="form-label">Confirm Password</label>
-					<input type="password" class="form-control" name="confirm_password" placeholder="confirm password..." required />
+					<input type="password" class="form-control" name="confirm_password" placeholder="confirm password..." minlength="6" required />
 				</div>
 
 				<br />
@@ -76,6 +81,8 @@
 
 				<a href="index.php">Login</a>
 			</form>
+
+			<?php unset($_SESSION["inputs"]) ?>
 		</div>
 	</div>
 </body>

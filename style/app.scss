@@ -1,1 +1,37 @@
+body {
+  overflow-x: hidden;
+}
 
+.slide-in {
+  animation: slide-in .2s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: .9;
+    height: 58px;
+  }
+}
+
+.slide-out {
+  animation: slide-out .2s ease-in forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: .9;
+    height: 58px;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+    height: 0;
+  }
+}

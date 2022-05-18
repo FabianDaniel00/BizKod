@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap5/css/bootstrap.css"/>
 	<script type="text/javascript" src="bootstrap5/js/bootstrap.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-	<link el="stylesheet" href="fontawesome/css/all.css">
+	<link rel="stylesheet" href="fontawesome/css/all.css">
 	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="style/app.css">
 </head>
@@ -30,14 +30,19 @@
 					$alert = $_SESSION["alert"];
 			?>
 
-				<div class="alert alert-<?php echo $alert["type"] ?> msg">
-					<?php echo $alert["content"] ?>
+				<div class="msg d-none">
+					<div class="alert alert-<?php echo $alert["type"] ?>">
+						<?php echo $alert["content"] ?>
+					</div>
 				</div>
 
 			<?php
 				endif;
 
 				unset($_SESSION["alert"]);
+
+				$has_inputs = isset($_SESSION["inputs"]);
+				$inputs = $has_inputs ? $_SESSION["inputs"] : null;
 			?>
 
 			<form action="login_query.php" method="POST">
@@ -46,7 +51,7 @@
 
 				<div class="form-group mb-3">
 					<label class="form-label">Email</label>
-					<input type="email" class="form-control" name="email" placeholder="example@email.com" required />
+					<input type="email" class="form-control" name="email" placeholder="example@email.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
 				</div>
 
 				<div class="form-group mb-3">
@@ -67,6 +72,8 @@
 
 				<a href="registration.php">Registration</a>
 			</form>
+
+			<?php unset($_SESSION["inputs"]) ?>
 		</div>
 	</div>
 </body>

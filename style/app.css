@@ -1,1 +1,74 @@
-/* No CSS *//*# sourceMappingURL=app.css.map */
+body {
+  overflow-x: hidden;
+}
+
+.slide-in {
+  -webkit-animation: slide-in .2s ease-out;
+          animation: slide-in .2s ease-out;
+}
+
+@-webkit-keyframes slide-in {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: .9;
+    height: 58px;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: .9;
+    height: 58px;
+  }
+}
+
+.slide-out {
+  -webkit-animation: slide-out .2s ease-in forwards;
+          animation: slide-out .2s ease-in forwards;
+}
+
+@-webkit-keyframes slide-out {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: .9;
+    height: 58px;
+  }
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    height: 0;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: .9;
+    height: 58px;
+  }
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    height: 0;
+  }
+}
+/*# sourceMappingURL=app.css.map */

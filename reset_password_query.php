@@ -16,7 +16,7 @@
 				];
 				$conn = null;
 
-				header("location: reset_password.php");
+				return header("location: reset_password.php");
 			}
 
       try {
@@ -35,7 +35,7 @@
           ];
           $conn = null;
 
-          header("location: index.php");
+          return header("location: index.php");
         } else {
           $_SESSION["alert"] = [
             "content" => "Something went wrong. Try again and click the link in the email.",
@@ -43,7 +43,7 @@
           ];
           $conn = null;
 
-          header("location: reset_password.php");
+          return header("location: reset_password.php");
         }
       } catch(PDOException $e) {
         $_SESSION["alert"] = [
@@ -52,7 +52,7 @@
         ];
         $conn = null;
 
-        header("location: reset_password.php");
+        return header("location: reset_password.php");
       }
     } else {
       $_SESSION["alert"] = [
@@ -61,7 +61,7 @@
 			];
 			$conn = null;
 
-			header("location: reset_password.php");
+			return header("location: reset_password.php");
     }
   }
 ?>

@@ -20,7 +20,7 @@
           ];
           $conn = null;
 
-          header("location: index.php");
+          return header("location: index.php");
         } else {
           $_SESSION["alert"] = [
             "content" => "Something went wrong. Try again and click the link in the email.",
@@ -28,7 +28,7 @@
           ];
           $conn = null;
 
-          header("location: index.php");
+          return header("location: index.php");
         }
       } catch(PDOException $e) {
         $_SESSION["alert"] = [
@@ -37,7 +37,7 @@
         ];
         $conn = null;
 
-        header("location: index.php");
+        return header("location: index.php");
       }
     } else {
       $_SESSION["alert"] = [
@@ -46,7 +46,7 @@
       ];
       $conn = null;
 
-      header("location: index.php");
+      return header("location: index.php");
     }
   }
 ?>

@@ -33,9 +33,9 @@ CREATE TABLE `user` (
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `is_admin` tinyint(4) DEFAULT 0 NULL,
-  `verification_code` varchar(200) NOT NULL,
-  `is_verified` tinyint(4) DEFAULT 0 NULL
+  `is_admin` tinyint(4) DEFAULT 0 NOT NULL,
+  `verification_code` varchar(200) NULL,
+  `is_verified` tinyint(4) DEFAULT 0 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

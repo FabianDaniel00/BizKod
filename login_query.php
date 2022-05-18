@@ -20,22 +20,24 @@
 						"content" => "You need to verify your email to login.",
 						"type" => "danger",
 					];
+					$_SESSION["inputs"]["email"] = $email;
 					$conn = null;
 
-					header("location: index.php");
+					return header("location: index.php");
 				}
 
 				$_SESSION["user"] = $user;
 
-				header("location: home.php");
+				return header("location: home.php");
 			} else {
 				$_SESSION["alert"] = [
 					"content" => "Invalid email or password.",
 					"type" => "danger",
 				];
+				$_SESSION["inputs"]["email"] = $email;
 				$conn = null;
 
-				header("location: index.php");
+				return header("location: index.php");
 			}
 		} else {
 			$_SESSION["alert"] = [
@@ -44,7 +46,7 @@
 			];
 			$conn = null;
 
-			header("location: index.php");
+			return header("location: index.php");
 		}
 	}
 ?>
