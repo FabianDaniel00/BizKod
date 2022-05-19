@@ -18,7 +18,7 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: .9;
-    height: 58px;
+    height: 74px;
   }
 }
 
@@ -33,7 +33,7 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: .9;
-    height: 58px;
+    height: 74px;
   }
 }
 
@@ -47,7 +47,7 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: .9;
-    height: 58px;
+    height: 74px;
   }
   to {
     -webkit-transform: translateX(100%);
@@ -62,7 +62,7 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: .9;
-    height: 58px;
+    height: 74px;
   }
   to {
     -webkit-transform: translateX(100%);
@@ -70,5 +70,23 @@ body {
     opacity: 0;
     height: 0;
   }
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+.alert {
+  padding-right: 40px;
+  position: relative;
+}
+
+.alert button {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 /*# sourceMappingURL=app.css.map */

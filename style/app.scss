@@ -15,7 +15,7 @@ body {
   to {
     transform: translateX(0);
     opacity: .9;
-    height: 58px;
+    height: 74px;
   }
 }
 
@@ -27,11 +27,27 @@ body {
   from {
     transform: translateX(0);
     opacity: .9;
-    height: 58px;
+    height: 74px;
   }
   to {
     transform: translateX(100%);
     opacity: 0;
     height: 0;
+  }
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+.alert {
+  padding-right: 40px;
+  position: relative;
+  button {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
   }
 }

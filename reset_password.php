@@ -33,6 +33,7 @@
 				<div class="msg d-none">
 					<div class="alert alert-<?php echo $alert["type"] ?>">
 						<?php echo $alert["content"] ?>
+						<button><i class="fa-solid fa-xmark"></i></button>
 					</div>
 				</div>
 

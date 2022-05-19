@@ -33,6 +33,7 @@
 				<div class="msg d-none">
 					<div class="alert alert-<?php echo $alert["type"] ?>">
 						<?php echo $alert["content"] ?>
+						<button><i class="fa-solid fa-xmark"></i></button>
 					</div>
 				</div>
 
@@ -50,7 +51,7 @@
 				<hr style="border-top: 1px groovy #000;">
 
 				<div class="form-group mb-3">
-					<label class="form-label">Email</label>
+					<label class="form-label">Your Email</label>
 					<input type="email" class="form-control" name="email" placeholder="example@email.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
 				</div>
 

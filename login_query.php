@@ -17,7 +17,7 @@
 			if ($query->rowCount() > 0 && password_verify($plain_password, $user["password"])) {
 				if (!$user["is_verified"]) {
 					$_SESSION["alert"] = [
-						"content" => "You need to verify your email to login.",
+						"content" => "You need to verify your email to login. Check your emails.",
 						"type" => "danger",
 					];
 					$_SESSION["inputs"]["email"] = $email;

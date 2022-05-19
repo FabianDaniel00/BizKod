@@ -1,7 +1,7 @@
-window.onload = () => {
+window.addEventListener('load', () => {
 	formLoading();
 	clearAlert();
-}
+});
 
 const formLoading = () => {
 	document.querySelectorAll('form').forEach(form => {
@@ -24,8 +24,13 @@ const clearAlert = () => {
 			}
 		}
 
-		setTimeout(() => {
+		const timer = setTimeout(() => {
 			alert.classList.add('slide-out');
 		}, alert.classList.contains('alert-info') ? 5000 : 20000);
+
+		alert.querySelector('button').onclick = () => {
+			clearTimeout(timer);
+			alert.classList.add('slide-out');
+		};
 	});
 }
