@@ -28,7 +28,7 @@
         if ($query->rowCount() > 0) {
           $conn = null;
 
-          return send_message("Password reseted successfully.", "success", "index");
+          return send_message("Password reseted successfully.", "success", "login");
         } else {
           $conn = null;
 
@@ -46,5 +46,5 @@
     }
   }
 
-	return header("location: reset-password.php");
+	return header("Location: reset-password.php");
 ?>

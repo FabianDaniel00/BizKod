@@ -17,23 +17,23 @@
         if ($query->rowCount() > 0) {
           $conn = null;
 
-          return send_message("Your email was successfully verified. You can login now.", "success", "index");
+          return send_message("Your email was successfully verified. You can login now.", "success", "login");
         } else {
           $conn = null;
 
-          return send_message("Something went wrong. Try again and click the link in the email.", "danger", "index");
+          return send_message("Something went wrong. Try again and click the link in the email.", "danger", "login");
         }
       } catch(PDOException $e) {
         $conn = null;
 
-        return send_message($e->getMessage(), "danger", "index");
+        return send_message($e->getMessage(), "danger", "login");
       }
     } else {
       $conn = null;
 
-      return send_message("Can't find the verification code.", "danger", "index");
+      return send_message("Can't find the verification code.", "danger", "login");
     }
   }
 
-  return header("location: index.php");
+  return header("Location: login.php");
 ?>

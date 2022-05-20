@@ -35,7 +35,7 @@
 
       <div class="d-flex align-items-center gap-3 order-first order-md-last">
         <?php if ($_SESSION["current_user"]): ?>
-          <span class="user-badge">
+          <span class="user-badge rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">
             <?php echo strtoupper(substr($current_user["firstname"], 0, 1).substr($current_user["lastname"], 0, 1)); ?>
           </span>
 

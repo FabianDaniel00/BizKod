@@ -128,5 +128,5 @@
     }
   }
 
-  return header("location: ../app/index.php");
+  return header("Location: ../app/login.php");
 ?>

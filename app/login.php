@@ -2,7 +2,7 @@
 	session_start();
 
 	if (isset($_SESSION["current_user"])) {
-		return header("location: home.php");
+		return header("Location: home.php");
 	}
 ?>
 

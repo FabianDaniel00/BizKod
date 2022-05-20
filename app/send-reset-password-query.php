@@ -68,5 +68,5 @@
     }
   }
 
-  return header("location: send-reset-password.php");
+  return header("Location: send-reset-password.php");
 ?>

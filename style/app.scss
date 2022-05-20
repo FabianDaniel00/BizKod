@@ -72,6 +72,8 @@ table {
 
 .alert {
   button {
+    width: 25px;
+    height: 25px;
     right: 10px;
   }
 }
@@ -79,10 +81,5 @@ table {
 .user-badge {
   width: 50px;
   height: 50px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #94abd6;
-  box-shadow: 0 .125rem .25rem rgba(black, .075);
 }

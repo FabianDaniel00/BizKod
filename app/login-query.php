@@ -19,23 +19,23 @@
 				if (!$user["is_verified"]) {
 					$conn = null;
 
-					return send_message("You need to verify your email to login. Check your emails.", "danger", "index", [$email]);
+					return send_message("You need to verify your email to login. Check your emails.", "danger", "login", [$email]);
 				}
 
 				$_SESSION["current_user"] = $user;
 
-				return header("location: home.php");
+				return header("Location: home.php");
 			} else {
 				$conn = null;
 
-				return send_message("Invalid email or password.", "danger", "index", [$email]);
+				return send_message("Invalid email or password.", "danger", "login", [$email]);
 			}
 		} else {
 			$conn = null;
 
-			return send_message("Please complete the required fields!", "danger", "index", [$email]);
+			return send_message("Please complete the required fields!", "danger", "login", [$email]);
 		}
 	}
 
-	return header("location: index.php");
+	return header("Location: login.php");
 ?>

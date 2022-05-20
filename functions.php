@@ -8,6 +8,6 @@
       $_SESSION["inputs"][trim(array_search($input, $GLOBALS), " \t.")] = $input;
     }
 
-    header("location: ".$location.".php");
+    header("Location: ".$location.".php");
   }
 ?>

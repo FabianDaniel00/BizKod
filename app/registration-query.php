@@ -62,7 +62,7 @@
 				if ($query->rowCount() > 0 && mail($email, "BizKod Email Verification", $message)) {
 					$conn = null;
 
-					return send_message("User is created successfully. Verification email sent.", "success", "index");
+					return send_message("User is created successfully. Verification email sent.", "success", "login");
 				} else {
 					$conn = null;
 
@@ -80,5 +80,5 @@
 		}
 	}
 
-	return header("location: registration.php");
+	return header("Location: registration.php");
 ?>

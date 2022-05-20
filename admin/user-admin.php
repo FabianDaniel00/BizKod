@@ -9,7 +9,7 @@
 	$current_user = $_SESSION["current_user"];
 
 	if (!isset($current_user) || isset($current_user) && !$current_user["is_admin"]) {
-		return header("location: ../app/index.php");
+		return header("Location: ../app/login.php");
 	}
 ?>
 

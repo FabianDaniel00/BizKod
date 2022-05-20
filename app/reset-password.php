@@ -2,7 +2,7 @@
 	session_start();
 
 	if (isset($_SESSION["current_user"])) {
-		return header("location: home.php");
+		return header("Location: home.php");
 	}
 ?>
 
@@ -41,7 +41,7 @@
 				<button type="submit" class="btn btn-primary form-control" name="reset-password">Reset Password</button>
 			</div>
 
-			<a href="index.php">Login</a>
+			<a href="login.php">Login</a>
 		</form>
 	</div>
 </body>

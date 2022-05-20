@@ -9,7 +9,7 @@
 	$current_user = $_SESSION["current_user"];
 
 	if (!isset($current_user)) {
-		return header("location: index.php");
+		return header("Location: login.php");
 	}
 ?>
 
