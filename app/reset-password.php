@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
 	<title>Reset Password • BizKod</title>
-  <?php include "../components/header.php"; ?>
+  <?php include "../components/head.php"; ?>
 </head>
 <body>
 	<div class="col-md-6 col-sm-8 mx-auto p-3 px-sm-0">

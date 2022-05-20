@@ -17,7 +17,7 @@
 <html lang="en">
 <head>
 	<title>User Admin • BizKod</title>
-  <?php include "../components/header.php"; ?>
+  <?php include "../components/head.php"; ?>
 </head>
 <body>
   <?php include "../components/navbar.php"; ?>

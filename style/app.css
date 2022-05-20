@@ -115,7 +115,7 @@ table tr td button {
 .alert button {
   width: 25px;
   height: 25px;
-  right: 10px;
+  right: 0;
 }
 
 .user-badge {
