@@ -6,7 +6,14 @@ window.addEventListener('load', () => {
 const formLoading = () => {
 	document.querySelectorAll('form').forEach(form => {
 		form.onsubmit = () => {
-			form.querySelector('[type="submit"]').innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+			const loadingHTML = '<i class="fa-solid fa-circle-notch fa-spin me-1"></i> Submitting...';
+
+			const submitButton = form.querySelector('[type="submit"]');
+			if (submitButton) {
+				submitButton.innerHTML = loadingHTML;
+			} else {
+				document.querySelector(`[form="${ form.getAttribute('id') }"]`).innerHTML = loadingHTML;
+			}
 		}
 	});
 }
@@ -26,7 +33,7 @@ const clearAlert = () => {
 
 		const timer = setTimeout(() => {
 			alert.classList.add('slide-out');
-		}, alert.classList.contains('alert-info') ? 5000 : 20000);
+		}, alert.firstElementChild.classList.contains('alert-info') || alert.firstElementChild.classList.contains('alert-success') ? 5000 : 20000);
 
 		alert.querySelector('button').onclick = () => {
 			clearTimeout(timer);
