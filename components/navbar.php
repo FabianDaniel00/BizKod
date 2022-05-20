@@ -7,17 +7,17 @@
     <div class="collapse navbar-collapse justify-content-between flex-column align-items-start align-items-md-center flex-md-row" id="navbar">
       <ul class="navbar-nav mb-2 mb-md-0 order-last order-md-first">
         <li class="nav-item">
-          <a class="nav-link<?php echo $active_page == "home" ? " active" : "" ; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>home.php">Home</a>
+          <a class="nav-link<?php echo $active_page == "home" ? " active" : ""; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>home.php">Home</a>
         </li>
         <?php
           if ($current_user["is_admin"]):
         ?>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle<?php echo str_contains($active_page, "admin") ? " active" : "" ; ?>" aria-current="admin" href="#" id="navbarAdminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle<?php echo str_contains($active_page, "admin") ? " active" : ""; ?>" aria-current="admin" href="#" id="navbarAdminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Admin
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarAdminDropdown">
-              <li><a class="dropdown-item<?php echo $active_page == "user-admin" ? " active" : "" ; ?>" href="<?php echo $from_admin ? "" : "../admin/"; ?>user-admin.php">User Admin</a></li>
+              <li><a class="dropdown-item<?php echo $active_page == "user-admin" ? " active" : ""; ?>" href="<?php echo $from_admin ? "" : "../admin/"; ?>user-admin.php">User Admin</a></li>
               <!-- <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-muted" href="#">Something else here</a></li> -->
             </ul>
