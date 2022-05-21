@@ -34,8 +34,6 @@
 		<h3 class="text-primary"><?php echo $location["name"]; ?></h3>
 		<hr style="border-top: 1px dotted #ccc;"/>
 
-		<?php include "../components/alert.php"; ?>
-
     <iframe
       src="<?php echo $location["map"]; ?>"
       width="100%"
@@ -49,24 +47,32 @@
       <span class="d-flex gap-1 text-warning justify-content-center align-items-center my-2">
         <span class="text-black">Average rating: </span>
         <?php
-          $full_star_count = (int) $location["avg_rating"];
-          $deciamls = round($location["avg_rating"] - $full_star_count, 2);
-          $has_half_star = $deciamls >= 0.25 && $deciamls <= 0.75 ? true : false;
+          if ($location["rating_count"]):
+            $full_star_count = (int) $location["avg_rating"];
+            $deciamls = round($location["avg_rating"] - $full_star_count, 2);
+            $has_half_star = $deciamls >= 0.25 && $deciamls <= 0.75 ? true : false;
 
-          for ($i = 0; $i < $full_star_count; $i++):
+            for ($i = 0; $i < $full_star_count; $i++):
         ?>
           <i class="fa-solid fa-star"></i>
         <?php
           endfor;
 
           echo $has_half_star ? '<i class="fa-solid fa-star-half"></i>' : "";
-          echo '<span class="text-black">('.round($location["avg_rating"], 2).' out of '.$location["rating_count"].')</span>';
+          echo '<span class="text-black">('.round($location["avg_rating"], 1).' out of '.$location["rating_count"].')</span>';
+          else: echo '<span class="text-muted fst-italic">No rating yet</span>';
+          endif;
+
+          $has_inputs = isset($_SESSION["inputs"]);
+          $inputs = $has_inputs ? $_SESSION["inputs"] : null;
         ?>
       </span>
-      <img src="../images/map/<?php echo $location["picture"]; ?>" class="rounded-3 shadow my-2" alt="<?php echo $location["name"]; ?>" width="500px" />
+      <img src="../images/map/<?php echo $location["picture"]; ?>" class="rounded-3 shadow my-2" alt="<?php echo $location["name"]; ?>" style="max-width: 500px; width: 100%;" />
     </div>
 
-    <hr class="custom-hr" />
+    <hr id="custom-hr" />
+
+		<?php include "../components/alert.php"; ?>
 
 		<form id="feedback-form" action="location-query.php" method="POST">
 			<h4 class="text-success">Feedback</h4>
@@ -74,7 +80,7 @@
 
 			<div class="form-group mb-3">
 				<label class="form-label">Message <sup class="text-danger">*</sup></label>
-				<textarea class="form-control" form="feedback-form" name="message" rows="3" placeholder="Write what you think about this place..."></textarea>
+				<textarea class="form-control" form="feedback-form" name="message" rows="3" placeholder="Write what you think about this place..."><?php echo $has_inputs ? $inputs["message"] : ""; ?></textarea>
 			</div>
 
 			<div class="form-group mb-3">
@@ -86,7 +92,7 @@
           <span>4</span>
           <span>5</span>
         </div>
-        <input type="range" class="form-range" min="1" max="5" value="0">
+        <input type="range" name="rating" class="form-range" min="1" max="5" value="<?php echo $has_inputs ? $inputs["rating"] : "0"; ?>">
       </div>
 
       <input type="hidden" name="location_id" value="<?php echo $location["id"]; ?>" />
@@ -103,27 +109,49 @@
 		<hr style="border-top: 1px groovy #000;">
 
     <?php
-      $sql = "SELECT location_rating.rating, location_rating.message, location_rating.created_at, user.firstname, user.lastname FROM `location_rating` INNER JOIN `user` ON location_rating.user_id = user.id WHERE location_rating.location_id = ?;";
+      $sql = "SELECT location_rating.id, location_rating.rating, location_rating.message, location_rating.created_at, user.firstname, user.lastname FROM `location_rating` INNER JOIN `user` ON location_rating.user_id = user.id WHERE location_rating.location_id = ?;";
       $query = $conn->prepare($sql);
       $query->execute([$_GET["location-id"]]);
 
       while ($location_rating = $query->fetch()):
     ?>
-      <div class="my-3 d-flex gap-3">
-        <div class="rounded-circle d-flex justify-content-center align-items-center shadow fw-bold" style="height: 50px; width: 50px;">
+      <div id="feedback-<?php echo $location_rating["id"]; ?>" class="my-3 d-flex gap-3">
+        <div class="rounded-circle d-flex justify-content-center align-items-center shadow fw-bold" style="height: 50px; width: 50px; background-color: #94ABD6;">
             <?php echo strtoupper(substr($location_rating["firstname"], 0, 1).substr($location_rating["lastname"], 0, 1)) ?>
         </div>
 
         <div class="w-100">
           <div>
-            <b><?php echo $location_rating["firstname"]." ".$location_rating["lastname"]; ?></b>
-            <?php for ($i = 0; $i < $location_rating["rating"]; $i++): ?>
-
-            <?php endfor; ?>
+            <div class="d-flex justify-content-between">
+              <div>
+                <b><?php echo $location_rating["firstname"]." ".$location_rating["lastname"]; ?></b>
+                <span class="d-block d-md-inline-block">
+                  <?php for ($i = 0; $i < $location_rating["rating"]; $i++): ?>
+                    <i class="fa-solid fa-star text-warning"></i>
+                  <?php endfor; ?>
+                </span>
+              </div>
+              <div class="text-muted fs-6"><?php echo $location_rating["created_at"]; ?></div>
+            </div>
+            <div>
+              <?php echo $location_rating["message"]; ?>
+            </div>
           </div>
         </div>
       </div>
-    <?php endwhile; ?>
+    <?php
+      endwhile;
+
+      if ($query->rowCount() < 1):
+    ?>
+      <div class="text-center">
+        No feedback yet!
+      </div>
+    <?php
+      endif;
+
+      unset($_SESSION["inputs"]);
+    ?>
 	</div>
 
 	<?php include "../components/footer.php"; ?>

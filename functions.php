@@ -10,7 +10,7 @@
    *
    * Sets the inputs in the session to keep the inputs value in the template.
    */
-  function send_message(string $content, string $type, string $location, array $inputs = []) {
+  function send_message(string $content, string $type, string $location, array $inputs = [], string $query_params = "") {
     $_SESSION["alert"] = [
       "content" => $content,
       "type" => $type,
@@ -21,7 +21,7 @@
       $_SESSION["inputs"][trim(array_search($input, $GLOBALS), " \t.")] = $input;
     }
 
-    header("Location: ".$location.".php");
+    header("Location: ".$location.".php".$query_params);
   }
 
   function send_mail(string $email_address, string $name, string $body, string $subject) {
