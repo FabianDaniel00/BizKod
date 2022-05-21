@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="col-md-6 col-sm-8 mx-auto p-3 px-sm-0">
-		<h3 class="text-primary">PHP - PDO Send Reset passsword</h3>
+		<h3 class="text-primary">Send Reset passsword</h3>
 		<hr style="border-top:1px dotted #ccc;"/>
 
 		<?php

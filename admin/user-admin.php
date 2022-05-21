@@ -23,7 +23,7 @@
   <?php include "../components/navbar.php"; ?>
 
 	<div class="px-3">
-		<h3 class="text-primary">PHP - PDO User Admin</h3>
+		<h3 class="text-primary">User Admin</h3>
 		<hr style="border-top: 1px dotted #ccc;"/>
 
 		<?php

@@ -91,32 +91,5 @@
         </section>
 
         <?php include "../components/footer.php"; ?>
-
-<script type="text/javascript">
-    function dateCalculator (time) {
-        if (isNaN(time))
-        let currentTime = strtotime(time);
-
-        let periods = array("second", "minute", "hour", "day", "week", "month", "year", "age");
-        let lengths = array("60","60","24","7","4.35","12","100");
-
-        let now = Date.now();
-
-        var difference = now - time;
-        if (difference <= 10 && difference >= 0)
-            {return tense = 'just now';}
-        else if(difference > 0)
-            {return tense = 'ago';}
-        else if(difference < 0)
-            {return tense = 'later';}
-
-        for(let j = 0; difference >= lengths[j] && j < count(lengths)-1; j++) {
-            difference /= lengths[j];
-        }
-
-        difference = round(difference);
-
-        period = periods[$j] . (difference >1 ? 's' :'');
-        return `${difference} + ${period} + ${tense}`;
-    }
-</script>
+    </body>
+</html>

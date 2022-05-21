@@ -1,6 +1,4 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
 	session_start();
 
 	$from_admin = false;
