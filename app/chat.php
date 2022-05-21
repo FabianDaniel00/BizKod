@@ -62,7 +62,7 @@
         <section class="chat d-flex justify-content-center">
             <div class="chat__container col-12 col-xl-8">
                 <?php
-                    $sql = "SELECT user.firstname, user.lastname, user.id AS 'user_id', chat.message, chat.created_at FROM chat INNER JOIN user ON chat.userID = user.id;";
+                    $sql = "SELECT user.firstname, user.lastname, user.id AS 'user_id', chat.message, chat.created_at FROM chat INNER JOIN user ON chat.userID = user.id order by chat.created_at;";
                     $query = $conn->prepare($sql);
                     $query->execute();
                     while($chat = $query->fetch()):
@@ -82,9 +82,9 @@
                 <?php endwhile; ?>
 
                 <div class="chat__container--submit">
-                    <form action="chat-query.php" method="POST" class="form">
-                        <input type="text" class="form_input" placeholder="Type here the message..." />
-                        <button class="form_btn"><i class="fa-solid fa-phone-arrow-up-right"></i> SEND</button>
+                    <form action="sendchat.php" method="POST" class="form">
+                        <input type="text" class="form_input" name="message" placeholder="Type here the message..." />
+                        <button class="form_btn" type="submit" > SEND</button>
                     </form>
                 </div>
             </div>

@@ -14,7 +14,7 @@
             $sql "INSERT INTO location_rating (created_at, location_id, message, rating, user_id) VALUES (?, ?, ?, ?, ?);";
             $query = $conn-> prepare($sql);
             $query -> execute([
-                DateTime('NOW'),
+                date_create()->format('Y-m-d H:i:s'),
                 $loc,
                 $mes,
                 $rat,

@@ -173,3 +173,23 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+INSERT INTO `chat` (`id`, `message`, `created_at`, `userID`) VALUES
+(1, 'Sziasztok', '2022-05-21 18:10:25', 1),
+(2, 'Sziasztok', '2022-05-21 18:10:39', 2),
+(3, 'Mizu??', '2022-05-21 18:10:52', 1),
+(4, 'Sziasztok! Minden ok, ott?', '2022-05-21 18:11:14', 3),
+(5, '', '2022-05-21 23:12:48', 1),
+(6, '', '2022-05-21 23:13:04', 2),
+(7, 'qweqwe', '2022-05-21 23:14:57', 3),
+(8, 'asdasd', '2022-05-21 23:17:51', 2),
+(9, 'asdasd', '2022-05-21 23:18:46', 1),
+(10, 'valami', '2022-05-21 23:18:58', 2),
+(11, 'portnklnlbdf', '2022-05-21 23:21:36', 1),
+(12, 'kljsdghkbkkjsbdkjbvs', '2022-05-21 23:23:24', 1),
+(13, 'asdasdasd', '2022-05-21 23:24:22', 2),
+(14, 'qqqqqqq', '2022-05-21 23:24:35', 2),
+(15, 'qqqqqqq', '2022-05-21 23:24:42', 3),
+(16, 'kurwa', '2022-05-21 23:27:02', 1),
+(17, 'valami', '2022-05-21 23:27:14', 1);
