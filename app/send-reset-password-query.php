@@ -26,6 +26,9 @@
               $email,
             ]);
 
+            $headers = "MIME-Version: 1.0" . "\r\n"; 
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+
             $message = '
               <html>
                 <body>
@@ -37,7 +40,7 @@
               </html>
             ';
 
-            if ($query->rowCount() > 0 && mail($email, "BizKod Reset Password", $message)) {
+            if ($query->rowCount() > 0 && mail($email, "BizKod Reset Password", $message, $headers)) {
               $conn = null;
 
               return send_message("Reset password email sent.", "success", "reset-password");
