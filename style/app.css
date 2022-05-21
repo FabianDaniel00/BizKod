@@ -343,4 +343,10 @@ table tr td button {
   bottom: -24px;
   left: 0;
 }
+
+#map {
+  height: 500px;
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
 /*# sourceMappingURL=app.css.map */

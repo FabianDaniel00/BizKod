@@ -15,9 +15,6 @@
         <li class="nav-item">
           <a class="p-2 nav-link<?php echo $active_page == "chat" ? " active" : ""; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>chat.php"><i class="fa-solid fa-comment-dots fa-sm"></i> Chat with others</a>
         </li>
-        <li class="nav-item">
-          <a class="p-2 nav-link<?php echo $active_page == "contact" ? " active" : ""; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>contact.php"><i class="fa-solid fa-address-card fa-sm"></i> Contact Us</a>
-        </li>
         <?php
           if ($current_user["is_admin"]):
         ?>
@@ -34,8 +31,8 @@
         <?php
           endif;
         ?>
-        <li class="nav-item p-2">
-          <a class="nav-link d-xl-none" href="../logout.php"><i class="fa-solid fa-right-from-bracket fa-sm"></i> Logout</a>
+        <li class="nav-item">
+          <a class="p-2 nav-link d-xl-none" href="../logout.php"><i class="fa-solid fa-right-from-bracket fa-sm"></i> Logout</a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
