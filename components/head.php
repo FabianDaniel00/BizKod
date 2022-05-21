@@ -3,5 +3,6 @@
 <link rel="stylesheet" type="text/css" href="../packages/bootstrap5/css/bootstrap.css"/>
 <script type="text/javascript" src="../packages/bootstrap5/js/bootstrap.js"></script>
 <link rel="stylesheet" href="../packages/fontawesome6/css/all.css">
-<script src="../js/app.js"></script>
+<script src="../js/app.js" type="text/javascript"></script>
 <link rel="stylesheet" href="../style/app.css">
+<script type="text/javascript" src="../packages/moment.min.js"></script>

@@ -1,4 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Ubuntu:wght@300;400;700&display=swap");
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E6F4F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+}
+
 body {
   overflow-x: hidden;
   min-height: 100vh;
@@ -211,5 +224,123 @@ table tr td button {
 .user__logout:hover {
   background-color: #94ABD6;
   color: #fff;
+}
+
+.chat {
+  padding: 0 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.chat__container {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.chat__container-row {
+  position: relative;
+  margin: 30px 0;
+}
+
+.chat__container-row .user {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #0794FA;
+  color: #fff;
+}
+
+.chat__container-row .right {
+  margin-left: 80px;
+  margin-right: 0;
+  background-color: #0794FA;
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-box-shadow: 3px 4px 6px #999;
+          box-shadow: 3px 4px 6px #999;
+  position: relative;
+}
+
+.chat__container-row .right::before {
+  position: absolute;
+  top: 18px;
+  left: -16px;
+  border-style: solid;
+  border-width: 16px 16px 16px 0;
+  border-color: transparent #0794FA transparent transparent;
+  content: "";
+}
+
+.chat__container-row .right-author {
+  color: #fff;
+  font-weight: 600;
+}
+
+.chat__container-row .right-message {
+  color: #fff;
+}
+
+.chat__container-row .right-time {
+  font-weight: 500;
+  font-size: 14px;
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+}
+
+.chat__container-row.current-user {
+  position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.chat__container-row.current-user .user {
+  position: absolute;
+  top: 10px;
+  left: calc(100% - 50px);
+  width: 50px;
+  height: 50px;
+  background-color: #4CBB17;
+  color: #fff;
+}
+
+.chat__container-row.current-user .right {
+  margin-left: 0;
+  margin-right: 80px;
+  position: relative;
+  background-color: #4CBB17;
+}
+
+.chat__container-row.current-user .right::before {
+  position: absolute;
+  top: 18px;
+  left: 100%;
+  border-style: solid;
+  border-width: 16px 0 16px 16px;
+  border-color: transparent transparent transparent #4CBB17;
+  content: "";
+}
+
+.chat__container-row.current-user .right-author {
+  text-align: right;
+  color: #fff;
+  font-weight: 700;
+}
+
+.chat__container-row.current-user .right-message {
+  color: #fff;
+}
+
+.chat__container-row.current-user .right-time {
+  font-weight: 500;
+  font-size: 14px;
+  position: absolute;
+  bottom: -24px;
+  left: 0;
 }
 /*# sourceMappingURL=app.css.map */
