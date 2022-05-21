@@ -2,7 +2,7 @@
 	session_start();
 
 	$from_admin = false;
-  $active_page = "home";
+  	$active_page = "home";
 
 	require_once "../conn.php";
 
@@ -22,8 +22,8 @@
 <body>
 	<?php include "../components/navbar.php"; ?>
 
-	<div class="px-3">
-		<h3 class="text-primary">PHP - PDO Home</h3>
+	<div class="px-3 bg-white">
+		<h3 class="text-primary">Home Page</h3>
 		<hr style="border-top: 1px dotted #ccc;"/>
 
 		<h3>Welcome!</h3>

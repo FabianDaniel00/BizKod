@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Ubuntu:wght@300;400;700&display=swap");
 body {
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
   padding-bottom: 130px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .slide-in {
@@ -118,9 +120,96 @@ table tr td button {
   right: 0;
 }
 
-.user-badge {
-  width: 50px;
+.navbar {
+  padding: 10px 0;
+  background-color: #E6F4F1;
+}
+
+.navbar-brand {
   height: 50px;
-  background-color: #94abd6;
+  width: 60px;
+}
+
+.navbar-brand_logo {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar .nav-item {
+  margin: 0 6px;
+}
+
+@media (max-width: 1199px) {
+  .navbar .nav-item {
+    margin: 6px 0;
+  }
+}
+
+.navbar .nav-item .nav-link {
+  color: #94ABD6;
+  border-radius: 6px;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.navbar .nav-item .nav-link.active {
+  color: #fff;
+  background-color: #94ABD6;
+}
+
+.navbar .nav-item .nav-link:hover {
+  background-color: #94ABD6;
+  color: #fff;
+}
+
+.container-fluid {
+  padding: 0 15px;
+}
+
+.user__badge {
+  width: 40px;
+  height: 40px;
+  background-color: #94ABD6;
+  color: #fff;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.user__badge:hover {
+  color: #fff;
+}
+
+.user__name {
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  margin: 0 10px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.user__name:hover {
+  background-color: #94ABD6;
+  color: #fff;
+}
+
+.user__logout {
+  cursor: pointer;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.user__logout:hover {
+  background-color: #94ABD6;
+  color: #fff;
 }
 /*# sourceMappingURL=app.css.map */
