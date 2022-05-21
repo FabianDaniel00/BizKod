@@ -3,7 +3,6 @@
 
 	require_once "../conn.php";
 	require_once "../functions.php";
-	require_once "../mailer.php";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
 		$email = $_POST["email"];
