@@ -155,24 +155,3 @@
 	<?php include "../components/footer.php"; ?>
 </body>
 </html>
-=======
-=======
->>>>>>> d4426a527672e05bdd7bc68ac238e410d256fe96
-    session_start();
-    require_once "../conn.php";
-    if(isset($_GET["locationid"]))
-    {   
-        $location = $_GET["locationid"];
-        $sql = "SELECT * FROM location WHERE id=?";
-        $query = $conn->prepare($sql);
-        $query->execute([$location]);
-        $asd = $query->fetch();
-        
-    }
-
-<<<<<<< HEAD
-?>
->>>>>>> main
-=======
-?>
->>>>>>> d4426a527672e05bdd7bc68ac238e410d256fe96
