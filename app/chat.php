@@ -71,7 +71,7 @@
                     <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold"><?php 
                         echo strtoupper($chat["firstname"][0]) . strtoupper($chat["lastname"][0]);
                     ?></div>
-
+                    
                     <div class="right d-flex flex-column">
                         <span class="right-author"><?php echo $chat["firstname"]." " . $chat["lastname"];?></span>
                         <p class="right-message mb-0"><?php echo $chat["message"]; ?></p>
@@ -92,7 +92,7 @@
 
         <?php include "../components/footer.php"; ?>
 
-        <script type="text/javascript">
+<script type="text/javascript">
     function dateCalculator (time) {
         if (isNaN(time))
         let currentTime = strtotime(time);
@@ -113,14 +113,10 @@
         for(let j = 0; difference >= lengths[j] && j < count(lengths)-1; j++) {
             difference /= lengths[j];
         }
-    }
 
-   /* function asd(date) {
-        
-        const time = document.querySelector(".time-js");
-        time.innerText = moment(date, "YYYY-MM-DD HH:mm").fromNow();
-          
-    }*/
+        difference = round(difference);
+
+        period = periods[$j] . (difference >1 ? 's' :'');
+        return `${difference} + ${period} + ${tense}`;
+    }
 </script>
-    </body>
-</html>

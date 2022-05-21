@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 	session_start();
 
 	$from_admin = false;
@@ -129,6 +130,8 @@
 </body>
 </html>
 =======
+=======
+>>>>>>> d4426a527672e05bdd7bc68ac238e410d256fe96
     session_start();
     require_once "../conn.php";
     if(isset($_GET["locationid"]))
@@ -141,5 +144,9 @@
         
     }
 
+<<<<<<< HEAD
 ?>
 >>>>>>> main
+=======
+?>
+>>>>>>> d4426a527672e05bdd7bc68ac238e410d256fe96
