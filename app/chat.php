@@ -5,13 +5,46 @@
     $active_page = "chat";
 
 	require_once "../conn.php";
-
+    //
+    //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
 	$current_user = $_SESSION["current_user"];
 
 	if (!isset($current_user)) {
 		return header("Location: login.php");
 	}
+
+    function time_ago_en($time)
+    {
+        if(!is_numeric($time))
+            $time = strtotime($time);
+
+        $periods = array("second", "minute", "hour", "day", "week", "month", "year", "age");
+        $lengths = array("60","60","24","7","4.35","12","100");
+
+        $now = time();
+
+        $difference = $now - $time;
+        if ($difference <= 10 && $difference >= 0)
+            return $tense = 'just now';
+        elseif($difference > 0)
+            $tense = 'ago';
+        elseif($difference < 0)
+            $tense = 'later';
+
+        for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+            $difference /= $lengths[$j];
+        }
+
+        $difference = round($difference);
+
+        $period =  $periods[$j] . ($difference >1 ? 's' :'');
+        return "{$difference} {$period} {$tense} ";
+    }
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,58 +64,40 @@
 
         <section class="chat d-flex justify-content-center">
             <div class="chat__container col-xl-8">
-
-                <div class="chat__container-row d-flex">
+                <?php
+                 $sql = "SELECT user.firstname, user.lastname, user.id AS 'user_id', chat.message, chat.created_at FROM chat INNER JOIN user ON chat.userID = user.id;";
+                 $query = $conn->prepare($sql);
+                 $query->execute();
+                 while($chat = $query->fetch()):
+                 
+                 ?>
+                <div class="chat__container-row d-flex<?php echo $current_user["id"] == $chat["user_id"] ? " current-user" : "" ; ?>">
                     <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">PK</div>
                     
                     <div class="right d-flex flex-column">
-                        <span class="right-author">Krisztian</span>
-                        <p class="right-message mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos similique officiis nihil, error ipsam a consequuntur ipsum officia facilis id ullam enim rerum necessitatibus quos quia dolorem optio maxime, labore, molestiae eius sit vero? Laboriosam voluptatibus eius aliquid dolore, assumenda corporis inventore libero dignissimos modi voluptate commodi, natus quia qui ea non aut tenetur quibusdam pariatur ut magnam tempore. Porro ad magni tempora esse dolorum unde eum, quis earum rem nulla deleniti eveniet recusandae dolor enim sint consectetur eos quasi voluptas. Facilis vitae exercitationem unde eligendi labore saepe nihil sed itaque beatae magnam sunt harum et officiis rerum, corporis nisi.</p>
-                        <span class="right-time text-muted">16:59</span>
+                        <span class="right-author"><?php echo $chat["firstname"]." " . $chat["lastname"];?></span>
+                        <p class="right-message mb-0"><?php echo $chat["message"]; ?></p>
+                        <span class="right-time time-js text-muted"> 
+                        <?php echo time_ago_en($chat["created_at"]); ?>
+                        </span>
                     </div>
                 </div>
+                <?php endwhile; ?>
+                
 
-                <div class="chat__container-row d-flex">
-                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">JC</div>
-                    
-                    <div class="right d-flex flex-column">
-                        <span class="right-author">Jacint</span>
-                        <p class="right-message mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A assumenda porro adipisci quasi voluptas error rerum nihil, neque non asperiores.</p>
-                        <span class="right-time text-muted">16:59</span>
-                    </div>
-                </div>
-
-                <div class="chat__container-row d-flex current-user">
-                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">BV</div>
-                    
-                    <div class="right d-flex flex-column">
-                        <span class="right-author">Boris</span>
-                        <p class="right-message mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nam?</p>
-                        <span class="right-time text-muted">16:59</span>
-                    </div>
-                </div>
-
-                <div class="chat__container-row d-flex current-user">
-                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">BV</div>
-                    
-                    <div class="right d-flex flex-column">
-                        <span class="right-author">Boris</span>
-                        <p class="right-message mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat eaque sint molestias vitae libero, repellendus harum quos! Excepturi iure eligendi accusamus, ducimus doloribus explicabo sapiente fugit consequatur ab sequi rerum asperiores quibusdam molestias impedit voluptatum mollitia delectus laborum vero similique. Iure quod qui aperiam temporibus consectetur eligendi itaque nisi excepturi dolorem aspernatur! Iusto deserunt perspiciatis nihil. Quos sapiente, aperiam eaque necessitatibus cumque explicabo corporis optio adipisci! Dicta nobis nisi animi nesciunt dolor minima excepturi quos corrupti suscipit esse! Accusamus quaerat sunt recusandae ex possimus a? Consequatur, deleniti magni accusantium voluptatibus amet optio rerum inventore repellat ut sit delectus minima dicta.</p>
-                        <span class="right-time time-js text-muted">16:59</span>
-                    </div>
-                </div>
+                
             </div>
         </section>
 
         <?php include "../components/footer.php"; ?>
     </body>
 </html>
-<?php
-    $a = "2020-05-05";
-?>
+
 <script>
-    var date = "<?php echo $a; ?>";
-    const time = document.querySelector(".time-js");
-    time.innerText = moment(date, "YYYY-MM-DD HH:mm").fromNow();
-    console.log(date);
+   /* function asd(date) {
+        
+        const time = document.querySelector(".time-js");
+        time.innerText = moment(date, "YYYY-MM-DD HH:mm").fromNow();
+          
+    }*/
 </script>
