@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 08:30 PM
+-- Host: localhost
+-- Generation Time: May 21, 2022 at 08:48 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -133,18 +133,29 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`) VALUES
-(1, 'test@gmail.com', 'Jon', 'Doe', '$2y$10$Bzl36sK6UJ3ixbAcRu8GVu1G7iVEGqzb77l0lmlEQlE4pXoQSGoIe', 1, NULL, 1, '2022-05-20 11:46:14'),
-(9, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00'),
-(10, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07');
+(1, 'test@gmail.com', 'Jon', 'Doe', '$2y$10$Bzl36sK6UJ3ixbAcRu8GVu1G7iVEGqzb77l0lmlEQlE4pXoQSGoIe', 1, '', 1, '2022-05-20 11:46:14'),
+(3, 'danielfabian090@gmail.com', 'Fabian', 'Daniel', '$2y$10$22ydD/EKWnQ1Ove3gcOOSOKCZhiqE1S7.nYIjNguZCBhx5BMLvh86', 0, NULL, 1, '2022-05-21 12:11:53');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location_rating`
+--
+ALTER TABLE `location_rating`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -158,16 +169,28 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
+-- AUTO_INCREMENT for table `location_rating`
+--
+ALTER TABLE `location_rating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
