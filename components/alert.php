@@ -4,7 +4,7 @@
 ?>
 
   <div class="msg d-none">
-    <div class="alert alert-<?php echo $alert["type"]; ?> pe-5 position-sticky top-1 shadow-sm">
+    <div class="alert alert-<?php echo $alert["type"]; ?> pe-5 position-sticky top-1 shadow">
       <?php echo $alert["content"]; ?>
       <button class="position-absolute top-50 translate-middle text-<?php echo $alert["type"]; ?> d-flex justify-content-center align-items-center rounded-2 border-1">
         <i class="fa-solid fa-xmark"></i>

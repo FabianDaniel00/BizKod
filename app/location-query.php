@@ -6,10 +6,12 @@
 
 	$current_user = $_SESSION["current_user"];
 
-	if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["feedback"])) {
+	if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($current_user) && isset($_POST["feedback"])) {
 		$message = $_POST["message"];
 
 		if ($message != "") {
+      $message = $_POST["message"];
+
 			try {
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$sql = "INSERT INTO `user` (`email`, `firstname`, `lastname`, `password`, `verification_code`) VALUES (?, ?, ?, ?, ?);";

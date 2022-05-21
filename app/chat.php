@@ -72,7 +72,9 @@
                  
                  ?>
                 <div class="chat__container-row d-flex<?php echo $current_user["id"] == $chat["user_id"] ? " current-user" : "" ; ?>">
-                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">PK</div>
+                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow fw-bold">
+                        <?php strtoupper(substr($chat["firstname"], 0, 1).substr($chat["lastname"], 0, 1)) ?>
+                    </div>
                     
                     <div class="right d-flex flex-column">
                         <span class="right-author"><?php echo $chat["firstname"]." " . $chat["lastname"];?></span>

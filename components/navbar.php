@@ -41,7 +41,7 @@
 
       <div class="d-flex align-items-center order-first order-xl-last user">
         <?php if ($_SESSION["current_user"]): ?>
-          <a class="user__badge rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold" href="<?php echo $from_admin ? "" : "../app/"; ?>profile.php">
+          <a class="user__badge rounded-circle d-flex justify-content-center align-items-center shadow fw-bold" href="<?php echo $from_admin ? "" : "../app/"; ?>profile.php">
             <?php echo strtoupper(substr($current_user["firstname"], 0, 1).substr($current_user["lastname"], 0, 1)); ?>
           </a>
 

@@ -12,7 +12,7 @@
 		return header("Location: login.php");
 	}
 
-  $sql = "SELECT * FROM `location` WHERE `id` = ?;";
+  $sql = "SELECT AVG(location_rating.rating) AS 'avg_rating', COUNT(location_rating.rating) AS 'rating_count', location.id, location.name, location.lat, location.lon, location.picture, location.description, location.type, location.map FROM `location` INNER JOIN `location_rating` ON location.id = location_rating.location_id WHERE location.id = ?;";
   $query = $conn->prepare($sql);
   $query->execute([$_GET["location-id"]]);
 
@@ -44,7 +44,24 @@
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
     <div class="text-center">
-      <img src="../images/map/<?php echo $location["picture"]; ?>" class="rounded-3 shadow" alt="<?php echo $location["name"]; ?>" width="500px" />
+      <span class="d-flex gap-1 text-warning justify-content-center align-items-center my-2">
+        <span class="text-black">Average rating: </span>
+        <?php
+          $full_star_count = (int) $location["avg_rating"];
+          $deciamls = round($location["avg_rating"] - $full_star_count, 2);
+          $has_half_star = $deciamls >= 0.25 && $deciamls <= 0.75 ? true : false;
+
+          for ($i = 0; $i < $full_star_count; $i++):
+        ?>
+          <i class="fa-solid fa-star"></i>
+        <?php
+          endfor;
+
+          echo $has_half_star ? '<i class="fa-solid fa-star-half"></i>' : "";
+          echo '<span class="text-black">('.round($location["avg_rating"], 2).' out of '.$location["rating_count"].')</span>';
+        ?>
+      </span>
+      <img src="../images/map/<?php echo $location["picture"]; ?>" class="rounded-3 shadow my-2" alt="<?php echo $location["name"]; ?>" width="500px" />
     </div>
 
     <hr class="custom-hr" />
@@ -84,12 +101,27 @@
 		<hr style="border-top: 1px groovy #000;">
 
     <?php
-      $sql = "SELECT * FROM `location_rating` WHERE `location_id` = ?;";
+      $sql = "SELECT location_rating.rating, location_rating.message, location_rating.created_at, user.firstname, user.lastname FROM `location_rating` INNER JOIN `user` ON location_rating.user_id = user.id WHERE location_rating.location_id = ?;";
       $query = $conn->prepare($sql);
       $query->execute([$_GET["location-id"]]);
 
-      $location = $query->fetch();
+      while ($location_rating = $query->fetch()):
     ?>
+      <div class="my-3 d-flex gap-3">
+        <div class="rounded-circle d-flex justify-content-center align-items-center shadow fw-bold" style="height: 50px; width: 50px;">
+            <?php echo strtoupper(substr($location_rating["firstname"], 0, 1).substr($location_rating["lastname"], 0, 1)) ?>
+        </div>
+
+        <div class="w-100">
+          <div>
+            <b><?php echo $location_rating["firstname"]." ".$location_rating["lastname"]; ?></b>
+            <?php for ($i = 0; $i < $location_rating["rating"]; $i++): ?>
+
+            <?php endfor; ?>
+          </div>
+        </div>
+      </div>
+    <?php endwhile; ?>
 	</div>
 
 	<?php include "../components/footer.php"; ?>
