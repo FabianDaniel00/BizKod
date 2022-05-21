@@ -8,7 +8,7 @@
     $email = $_POST["email"];
 
     if ($email != "") {
-      $sql = "SELECT `is_verified` FROM `user` WHERE `email` = ?";
+      $sql = "SELECT `is_verified`, `firstname`, `lastname` FROM `user` WHERE `email` = ?";
       $query = $conn->prepare($sql);
       $query->execute([$email]);
       $user = $query->fetch();
@@ -26,10 +26,7 @@
               $email,
             ]);
 
-            $headers = "MIME-Version: 1.0" . "\r\n"; 
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
-
-            $message = '
+            $body = '
               <html>
                 <body>
                   <p>
@@ -40,7 +37,7 @@
               </html>
             ';
 
-            if ($query->rowCount() > 0 && mail($email, "BizKod Reset Password", $message, $headers)) {
+            if ($query->rowCount() > 0 && send_mail($email, $user["firstname"]." ".$user["lastname"], $body, "BizKod Password Reset")) {
               $conn = null;
 
               return send_message("Reset password email sent.", "success", "reset-password");

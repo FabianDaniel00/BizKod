@@ -48,10 +48,7 @@
 					md5($verification_code),
 				]);
 
-				$headers = "MIME-Version: 1.0" . "\r\n"; 
-				$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
-
-				$message = '
+				$body = '
 					<html>
 						<body>
 							<p>
@@ -62,7 +59,7 @@
 					</html>
 				';
 
-				if ($query->rowCount() > 0 && mail($email, "BizKod Email Verification", $message, $headers)) {
+				if ($query->rowCount() > 0 && send_mail($email, $firstname." ".$lastname, $body, "BizKod Email Verification")) {
 					$conn = null;
 
 					return send_message("User is created successfully. Verification email sent.", "success", "login");
