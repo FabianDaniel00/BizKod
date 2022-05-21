@@ -137,6 +137,11 @@ INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admi
 (9, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00'),
 (10, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07');
 
+INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`) VALUES
+(2, 'jacint9876543210@gmail.com', 'Juhasz', 'Jacint', '$2y$10$As7oax0KKxV4uKUuUGo5o.QggDMPV8K/gEucA18T0O4FoRPih4lRu', 1, NULL, 1, '2022-05-21 14:57:35'),
+(3, 'valaki@gmail.com', 'asd', 'asdasd', '$2y$10$qIKfDTvBU2QXPYV3XhNj7.8SRkYFrnD4zSw7fQ81ZAretpS1apQsS', 0, '6fef8bef2e59aec788f051e5eb9292f8', 0, '2022-05-21 18:09:14'),
+(4, 'qwerty@tippnet.rs', 'qwerty', 'ytrewq', '$2y$10$u692BQeS1D9a6utI0oGleeQwMGi2ebQTaxr3vHyIw5Z18s3CBQMA6', 0, '094cd2d69553d8db520b7d2d3e7dfe25', 0, '2022-05-21 18:09:57');
+
 --
 -- Indexes for dumped tables
 --
@@ -173,3 +178,10 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+INSERT INTO `chat` (`id`, `message`, `created_at`, `userID`) VALUES
+(1, 'Sziasztok', '2022-05-21 18:10:25', 1),
+(2, 'Sziasztok', '2022-05-21 18:10:39', 2),
+(3, 'Mizu??', '2022-05-21 18:10:52', 1),
+(4, 'Sziasztok! Minden ok, ott?', '2022-05-21 18:11:14', 3);
