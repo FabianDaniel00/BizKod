@@ -16,9 +16,6 @@
           <a class="p-2 nav-link<?php echo $active_page == "chat" ? " active" : ""; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>chat.php"><i class="fa-solid fa-comment-dots fa-sm"></i> Chat with others</a>
         </li>
         <li class="nav-item">
-          <a class="p-2 nav-link<?php echo $active_page == "map" ? " active" : ""; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>map.php"><i class="fa-solid fa-map-location-dot fa-sm"></i> Map</a>
-        </li>
-        <li class="nav-item">
           <a class="p-2 nav-link<?php echo $active_page == "contact" ? " active" : ""; ?>" href="<?php echo $from_admin ? "../app/" : ""; ?>contact.php"><i class="fa-solid fa-address-card fa-sm"></i> Contact Us</a>
         </li>
         <?php
