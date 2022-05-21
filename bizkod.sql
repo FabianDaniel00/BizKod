@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 09:19 PM
+-- Generation Time: May 21, 2022 at 10:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -74,7 +74,7 @@ INSERT INTO `location` (`id`, `name`, `lat`, `lon`, `picture`, `description`, `t
 (17, 'Népkör - Hungarian Cultural Center', '46.1008970000', '19.6581730000', 'nepker.jpg', 'The Hungarian Cultural Center of the Subotica is the oldest continuously operating cultural organization in the South: it was founded on October 15, 1871 as a liberal reading circle.', 'culture', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.506931011427!2d19.656170215272834!3d46.10080489876023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c435e53733%3A0x7d44b5fcb0641ce9!2sN%C3%A9pk%C3%B6r%20-%20Hungarian%20Cultural%20Center!5e0!3m2!1sen!2srs!4v1653159072629!5m2!1sen!2srs'),
 (18, 'Pizza+', '46.1010230000', '19.6605120000', 'pizza.jpg', 'Classic local pizzeria, known for their massive slices.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.4922191997307!2d19.658178215272812!3d46.10109809874055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c5dc4cb8c3%3A0x3348754ccaa80984!2sPizza%2B!5e0!3m2!1sen!2srs!4v1653159103600!5m2!1sen!2srs'),
 (19, 'Lipa', '46.1034890000', '19.6677590000', 'lipa.jpg', 'Bakery, mostly known for their good tasting Burek.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22131.92486047584!2d19.64285730068432!3d46.10113021793896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c9b30fdd9f%3A0xd5893e3da1f60f0d!2sLipa!5e0!3m2!1sen!2srs!4v1653159150231!5m2!1sen!2srs'),
-(20, 'Olympe Gyros 024', '46.1029090000', '19.6675930000', '', 'Olympe Gyros 024 is one of the oldest gyros vendors in Subotica, very populated on weekends.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1846.3528322246111!2d19.664413450805483!3d46.10286666466984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c9abebffab%3A0x9f38dd1fe38d0751!2sOlympe%20Gyros%20Plus!5e0!3m2!1sen!2srs!4v1653159188623!5m2!1sen!2srs'),
+(20, 'Olympe Gyros 024', '46.1029090000', '19.6675930000', 'gyros.png', 'Olympe Gyros 024 is one of the oldest gyros vendors in Subotica, very populated on weekends.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1846.3528322246111!2d19.664413450805483!3d46.10286666466984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c9abebffab%3A0x9f38dd1fe38d0751!2sOlympe%20Gyros%20Plus!5e0!3m2!1sen!2srs!4v1653159188623!5m2!1sen!2srs'),
 (21, 'Boss Cafe', '46.1015180000', '19.6680380000', 'boss.jpg', 'Back in 1986, Boss pizzeria was opened in Subotica - then modern and far ahead of its time.\r\nThe striking name, and a completely new, modern concept, quickly became recognizable, and the constant pursuit of quality resulted in success and expansion of offer and capacity.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.469334736403!2d19.66683792861778!3d46.101554173228045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c914d2792f%3A0x7af561bf72e4dffa!2sBoss%20Caffe!5e0!3m2!1sen!2srs!4v1653159227895!5m2!1sen!2srs'),
 (22, 'Stara Picerija', '46.1013100000', '19.6680590000', 'stara.jpg', 'Stara Picerija is one of the oldest pizzerias in the Republic of Serbia since, opened in 1977.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.471415811663!2d19.665498115272825!3d46.10151269871258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474366c93e19776b%3A0x3222b6ba458ef0cb!2sStara%20picerija%20-%20Since%201977!5e0!3m2!1sen!2srs!4v1653159261775!5m2!1sen!2srs'),
 (23, 'Mali trg', '46.0999820000', '19.6676950000', 'malitrg.jpg', 'Restaurant Mali Trg is located in the heart of Subotica and is the right place for all those who like good morning coffee, selected food and a pleasant atmosphere.', 'food', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199.77093730210223!2d19.667460839866283!3d46.100055095725935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474367a1ca43bca1%3A0x6929d863ec54bbeb!2sMali%20Trg%20Subotica!5e0!3m2!1sen!2srs!4v1653159301902!5m2!1sen!2srs'),
@@ -137,11 +137,6 @@ INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admi
 (9, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00'),
 (10, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07');
 
-INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`) VALUES
-(2, 'jacint9876543210@gmail.com', 'Juhasz', 'Jacint', '$2y$10$As7oax0KKxV4uKUuUGo5o.QggDMPV8K/gEucA18T0O4FoRPih4lRu', 1, NULL, 1, '2022-05-21 14:57:35'),
-(3, 'valaki@gmail.com', 'asd', 'asdasd', '$2y$10$qIKfDTvBU2QXPYV3XhNj7.8SRkYFrnD4zSw7fQ81ZAretpS1apQsS', 0, '6fef8bef2e59aec788f051e5eb9292f8', 0, '2022-05-21 18:09:14'),
-(4, 'qwerty@tippnet.rs', 'qwerty', 'ytrewq', '$2y$10$u692BQeS1D9a6utI0oGleeQwMGi2ebQTaxr3vHyIw5Z18s3CBQMA6', 0, '094cd2d69553d8db520b7d2d3e7dfe25', 0, '2022-05-21 18:09:57');
-
 --
 -- Indexes for dumped tables
 --
@@ -178,10 +173,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-INSERT INTO `chat` (`id`, `message`, `created_at`, `userID`) VALUES
-(1, 'Sziasztok', '2022-05-21 18:10:25', 1),
-(2, 'Sziasztok', '2022-05-21 18:10:39', 2),
-(3, 'Mizu??', '2022-05-21 18:10:52', 1),
-(4, 'Sziasztok! Minden ok, ott?', '2022-05-21 18:11:14', 3);
