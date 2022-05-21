@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 11:44 PM
+-- Generation Time: May 22, 2022 at 01:14 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -259,7 +259,8 @@ INSERT INTO `location_rating` (`id`, `location_id`, `rating`, `message`, `user_i
 (120, 40, 5, 'very good', 3, '2022-05-21 23:15:54'),
 (121, 40, 4, 'nice', 1, '2022-05-21 23:15:54'),
 (122, 40, 3, 'pretty average', 4, '2022-05-21 23:15:54'),
-(123, 40, 2, 'poor', 2, '2022-05-21 23:15:54');
+(123, 40, 2, 'poor', 2, '2022-05-21 23:15:54'),
+(124, 23, 3, 'Boris vagyok 9 es', 9, '2022-05-22 01:14:11');
 
 -- --------------------------------------------------------
 
@@ -285,8 +286,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`) VALUES
 (1, 'test@gmail.com', 'Jon', 'Doe', '$2y$10$Bzl36sK6UJ3ixbAcRu8GVu1G7iVEGqzb77l0lmlEQlE4pXoQSGoIe', 1, NULL, 1, '2022-05-20 11:46:14'),
-(9, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00'),
-(10, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07');
+(2, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07'),
+(3, 'test1@gmail.com', 'awdaw', 'awddwa', '$2y$10$ywtfNfrcQ4HPSLoOITwLkO9rmlz5B8yZGTIBo/Gy4sSHD01Nf17dy', 0, NULL, 1, '2022-05-22 01:13:03'),
+(4, 'test2@gmail.com', 'awddaw', 'awddaw', '$2y$10$ABlDqTX4o9/jF/PHL/0Kpe0Lg5MqP.kdXaVL9kjX8HQAvTsASqjDG', 0, NULL, 1, '2022-05-22 01:13:12'),
+(5, 'test3@gmail.com', 'awddaw', 'awdawd', '$2y$10$g11rd0qOGOKOnHwKT6xxm.XKxUaXh45TsSfkeFC2ybrlAzIuhBqlS', 0, NULL, 1, '2022-05-22 01:13:20'),
+(9, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00');
 
 --
 -- Indexes for dumped tables
@@ -336,13 +340,13 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `location_rating`
 --
 ALTER TABLE `location_rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
