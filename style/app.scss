@@ -57,7 +57,6 @@ body {
 
 button {
   border: 0;
-  background: transparent;
   box-shadow: 0 .125rem .25rem rgba(black, .075);
 }
 
@@ -288,6 +287,54 @@ table {
             position: absolute;
             bottom: -24px;
             left: 0;
+          }
+        }
+      }
+    }
+
+    &--submit {
+      margin: 100px 0 30px;
+      width: 100%;
+      height: auto;
+
+      .form {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &_input {
+          border-radius: 25px;
+          outline: none;
+          border: 1px solid $c-grayA;
+          padding: 10px 0 10px 15px;
+          flex: 1 1 auto;
+          margin-right: 50px;
+
+          &:focus {
+            outline: none;
+          }
+
+          @media(max-width: 540px) {
+            margin-right: 10px;
+          }
+        }
+
+        &_btn {
+          background-color: $c-theme;
+          color: $c-white;
+          padding: 12px 30px;
+          border-radius: 5px;
+          transition: .3s ease-in-out;
+          font-size: 16px;
+
+          @media(max-width: 540px) {
+            padding: 12px 20px;
+            font-size: 14px;
+          }
+          
+          &:hover {
+            background-color: $c-purple;
           }
         }
       }

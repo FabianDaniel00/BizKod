@@ -26,6 +26,7 @@
               <li><a class="dropdown-item<?php echo $active_page == "user-admin" ? " active" : ""; ?>" href="<?php echo $from_admin ? "" : "../admin/"; ?>user-admin.php"><i class="fa-solid fa-users fa-sm"></i> Users</a></li>
               <!-- <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-muted" href="#">Something else here</a></li> -->
+              <li><a class="dropdown-item<?php echo $active_page == "user-admin" ? " active" : ""; ?>" href="<?php echo $from_admin ? "" : "../admin/"; ?>locations-admin.php"><i class="fa-solid fa-location-dot fa-sm"></i> Locations</a></li>
             </ul>
           </li>
         <?php
