@@ -94,8 +94,11 @@ table {
 }
 
 .navbar {
+  position: sticky;
+  top: 0;
   padding: 10px 0;
   background-color: $c-dirty-white;
+  z-index: 10;
 
   &-brand {
     height: 50px;
@@ -188,7 +191,8 @@ table {
   &__container {
     max-height: 70vh;
     overflow-y: auto;
-    padding-right: 10px;
+    padding: 0 10px;
+    background-color: $c-grayA;
 
     &-row {
       position: relative;
@@ -238,6 +242,7 @@ table {
           position: absolute;
           bottom: -24px;
           right: 0;
+          color: $c-black;
         }
       }
 
@@ -334,7 +339,7 @@ table {
           }
           
           &:hover {
-            background-color: $c-purple;
+            background-color: $c-gray3;
           }
         }
       }
@@ -351,4 +356,66 @@ hr#custom-hr {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.profile {
+  min-height: 70vh;
+  background-color: $c-grayD;
+
+  &__container {
+    padding: 25px 15px;
+    flex-direction: column;
+
+    &-picture {
+      background-color: $c-purple;
+      width: 200px;
+      height: 200px;
+      font-size: 90px;
+      letter-spacing: 5px;
+      margin-bottom: 50px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        bottom: -15px;
+        right: 50%;
+        transform: translate(40%);
+        width: 76px;
+        height: 2px;
+        background-color: $c-theme;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -20px;
+        left: 50%;
+        transform: translate(-40%);
+        width: 76px;
+        height: 2px;
+        background-color: $c-theme;
+      }
+    }
+
+    &-about {
+      margin: 20px 0;
+      font-size: 20px;
+      text-align: left;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    &-description {
+      color: $c-gray3;
+      line-height: 28px;
+    }
+
+    .datas {
+      flex-direction: column;
+
+      &-name, &-home, &-email {
+        color: $c-gray3;
+      }
+    }
+  }
 }
