@@ -70,3 +70,35 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+/*A ci mokota*/
+CREATE TABLE chat(
+	id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	message varchar(1024) NULL,
+    created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userID int(11) NOT NULL,
+    FOREIGN KEY (userID) REFERENCES user(id)
+);
+
+CREATE TABLE location(
+	id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name varchar(1024) NOT NULL,
+    lat float NOT NULL,
+    lon float NOT NULL,
+    picture varchar(1024) NOT NULL,
+    description varchar(2048) NOT NULL
+);
+
+CREATE TABLE location_rating(
+	id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    location_id int(11) NOT NULL,
+    rating tinyint(2) NULL,
+    message varchar(2048) NULL,
+    user_id int(11) NOT NULL,
+    created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    FOREIGN KEY (location_id) REFERENCES location(id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
