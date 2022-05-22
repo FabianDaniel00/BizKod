@@ -29,42 +29,42 @@
 		<?php include "../components/alert.php"; ?>
 
 		<div class="whole">
-			<form class="container filters">
+			<form class="container filters" method="get" action="home.php">
 				<div class="filters-grid row-cols-2">
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="church" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="church" value="church" checked>
 						<label class="form-check-label" for="church">Church</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="culture" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="culture" value="culture" checked>
 						<label class="form-check-label" for="culture">Culture</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="park" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="park" value="park" checked>
 						<label class="form-check-label" for="park">Park</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="sport" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="sport" value="sport" checked>
 						<label class="form-check-label" for="sport">Sport</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="shop" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="shop" value="shop" checked>
 						<label class="form-check-label" for="shop">Shop</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="hotel" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="hotel" value="hotel" checked>
 						<label class="form-check-label" for="hotel">Hotel</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="transport" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="transport" value="transport" checked>
 						<label class="form-check-label" for="transport">Transport</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="food" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="food" value="food" checked>
 						<label class="form-check-label" for="food">Food</label>
 					</div>
 					<div class="filters-grid--item">
-						<input class="form-check-input" type="checkbox" id="official" checked>
+						<input class="form-check-input" name="check[]" type="checkbox" id="official" value="official" checked>
 						<label class="form-check-label" for="official">Official</label>
 					</div>
 				</div>
@@ -92,7 +92,26 @@
 		}).addTo(map);
 
 		<?php
+		$sql = "";
+		if(isset($_GET["check"]))
+		{
+			if(count($_GET["check"]) == 1)
+			{
+				$sql = "SELECT `id`, `name`, `lat`, `lon`, `picture` FROM `location` WHERE `type` = '" . $_GET["check"][0] ."';";
+			}
+			else{
+				$sql = "SELECT `id`, `name`, `lat`, `lon`, `picture` FROM `location` WHERE `type` = '" . $_GET["check"][0] . "'";
+				for($k=1;$k<count($_GET["check"]);$k++)
+				{
+					$sql .= " OR type = '" . $_GET["check"][$k] . "'";
+				}
+				$sql .= ";";
+			}
+		}
+		else{
 			$sql = "SELECT `id`, `name`, `lat`, `lon`, `picture` FROM `location`;";
+		}
+			
 			$query = $conn->prepare($sql);
 			$query->execute();
 
