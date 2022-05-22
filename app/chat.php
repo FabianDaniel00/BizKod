@@ -74,7 +74,7 @@
                     <div class="right d-fl''ex flex-column">
                         <a href="profile.php?user_id=<?php echo $chat["user_id"]; ?>" class="right-author"><?php echo $chat["firstname"]." " . $chat["lastname"];?></a>
                         <p class="right-message mb-0"><?php echo $chat["message"]; ?></p>
-                        <span class="right-time time-js text-muted"><?php echo time_ago_en($chat["created_at"]); ?>
+                        <span class="right-time time-js text-muted text-nowrap"><?php echo time_ago_en($chat["created_at"]); ?>
                         </span>
                     </div>
                 </div>
