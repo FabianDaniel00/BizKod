@@ -13,6 +13,16 @@
 
 		if ($message != "" && $location_id != "" && $rating != "" && $rating != "0") {
 			try {
+				$sql = "SELECT `id` FROM `location_rating` WHERE `user_id` = ?;";
+				$query = $conn->prepare($sql);
+				$query->execute([$current_user["id"]]);
+
+				if ($query->rowCount() > 0) {
+					$conn = null;
+
+					return send_message("You have already rated this location.", "info", "location", [], "?location-id=".$location_id."#custom-hr");
+				}
+
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$sql = "INSERT INTO `location_rating` (`location_id`, `rating`, `message`, `user_id`) VALUES (?, ?, ?, ?);";
 				$query = $conn->prepare($sql);

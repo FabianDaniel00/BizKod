@@ -111,7 +111,7 @@
 		<hr style="border-top: 1px groovy #000;">
 
     <?php
-      $sql = "SELECT location_rating.id, location_rating.rating, location_rating.message, location_rating.created_at, user.firstname, user.lastname FROM `location_rating` INNER JOIN `user` ON location_rating.user_id = user.id WHERE location_rating.location_id = ?;";
+      $sql = "SELECT location_rating.id, location_rating.user_id, location_rating.rating, location_rating.message, location_rating.created_at, user.firstname, user.lastname FROM `location_rating` INNER JOIN `user` ON location_rating.user_id = user.id WHERE location_rating.location_id = ?;";
       $query = $conn->prepare($sql);
       $query->execute([$_GET["location-id"]]);
 
@@ -126,7 +126,7 @@
           <div>
             <div class="d-flex justify-content-between">
               <div>
-                <b><?php echo $location_rating["firstname"]." ".$location_rating["lastname"]; ?></b>
+                <b<?php echo $location_rating["user_id"] == $current_user["id"] ? ' class="text-success"' : "" ?>><?php echo $location_rating["firstname"]." ".$location_rating["lastname"]; ?></b>
                 <span class="d-block d-md-inline-block">
                   <?php for ($i = 0; $i < $location_rating["rating"]; $i++): ?>
                     <i class="fa-solid fa-star text-warning"></i>
