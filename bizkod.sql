@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2022 at 01:14 AM
+-- Generation Time: May 22, 2022 at 06:51 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -39,23 +39,13 @@ CREATE TABLE `chat` (
 --
 
 INSERT INTO `chat` (`id`, `message`, `created_at`, `userID`) VALUES
-(1, 'Sziasztok', '2022-05-21 18:10:25', 1),
-(2, 'Sziasztok', '2022-05-21 18:10:39', 2),
-(3, 'Mizu??', '2022-05-21 18:10:52', 1),
-(4, 'Sziasztok! Minden ok, ott?', '2022-05-21 18:11:14', 3),
-(5, 'Hang vagy', '2022-05-21 23:12:48', 1),
-(6, 'Pot Miki <3', '2022-05-21 23:13:04', 2),
-(7, 'qweqwe', '2022-05-21 23:14:57', 3),
-(8, 'asdasd', '2022-05-21 23:17:51', 2),
-(9, 'asdasd', '2022-05-21 23:18:46', 1),
-(10, 'valami', '2022-05-21 23:18:58', 2),
-(11, 'portnklnlbdf', '2022-05-21 23:21:36', 1),
-(12, 'kljsdghkbkkjsbdkjbvs', '2022-05-21 23:23:24', 1),
-(13, 'asdasdasd', '2022-05-21 23:24:22', 2),
-(14, 'qqqqqqq', '2022-05-21 23:24:35', 2),
-(15, 'qqqqqqq', '2022-05-21 23:24:42', 3),
-(16, 'kurwa', '2022-05-21 23:27:02', 1),
-(17, 'valami', '2022-05-21 23:27:14', 1);
+(1, 'Hello', '2022-05-21 18:10:25', 1),
+(2, 'Hello', '2022-05-21 18:10:39', 2),
+(3, 'Hi!', '2022-05-21 18:10:52', 14),
+(4, 'Where do I find coffe?', '2022-05-21 18:11:14', 3),
+(5, 'Try Onore!', '2022-05-21 23:12:48', 1),
+(33, 'Or Prica', '2022-05-22 06:00:10', 14),
+(34, 'Okay', '2022-05-22 06:01:41', 2);
 
 -- --------------------------------------------------------
 
@@ -260,7 +250,8 @@ INSERT INTO `location_rating` (`id`, `location_id`, `rating`, `message`, `user_i
 (121, 40, 4, 'nice', 1, '2022-05-21 23:15:54'),
 (122, 40, 3, 'pretty average', 4, '2022-05-21 23:15:54'),
 (123, 40, 2, 'poor', 2, '2022-05-21 23:15:54'),
-(124, 23, 3, 'Boris vagyok 9 es', 9, '2022-05-22 01:14:11');
+(124, 23, 3, 'Boris vagyok 9 es', 9, '2022-05-22 01:14:11'),
+(125, 9, 5, 'very nice', 14, '2022-05-22 05:25:11');
 
 -- --------------------------------------------------------
 
@@ -277,20 +268,22 @@ CREATE TABLE `user` (
   `is_admin` tinyint(4) NOT NULL DEFAULT 0,
   `verification_code` varchar(200) DEFAULT NULL,
   `is_verified` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `origin` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`) VALUES
-(1, 'test@gmail.com', 'Jon', 'Doe', '$2y$10$Bzl36sK6UJ3ixbAcRu8GVu1G7iVEGqzb77l0lmlEQlE4pXoQSGoIe', 1, NULL, 1, '2022-05-20 11:46:14'),
-(2, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07'),
-(3, 'test1@gmail.com', 'awdaw', 'awddwa', '$2y$10$ywtfNfrcQ4HPSLoOITwLkO9rmlz5B8yZGTIBo/Gy4sSHD01Nf17dy', 0, NULL, 1, '2022-05-22 01:13:03'),
-(4, 'test2@gmail.com', 'awddaw', 'awddaw', '$2y$10$ABlDqTX4o9/jF/PHL/0Kpe0Lg5MqP.kdXaVL9kjX8HQAvTsASqjDG', 0, NULL, 1, '2022-05-22 01:13:12'),
-(5, 'test3@gmail.com', 'awddaw', 'awdawd', '$2y$10$g11rd0qOGOKOnHwKT6xxm.XKxUaXh45TsSfkeFC2ybrlAzIuhBqlS', 0, NULL, 1, '2022-05-22 01:13:20'),
-(9, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00');
+INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`, `origin`, `description`) VALUES
+(1, 'test@gmail.com', 'Jon', 'Doe', '$2y$10$Bzl36sK6UJ3ixbAcRu8GVu1G7iVEGqzb77l0lmlEQlE4pXoQSGoIe', 1, NULL, 1, '2022-05-20 11:46:14', 'New York', 'Hi I came from America !'),
+(2, 'vidakovic.boris@gmail.com', 'Boban', 'Salajevic', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07', 'Beograd', 'I like hiking.'),
+(3, 'test1@gmail.com', 'Milan', 'Avdic', '$2y$10$ywtfNfrcQ4HPSLoOITwLkO9rmlz5B8yZGTIBo/Gy4sSHD01Nf17dy', 0, NULL, 1, '2022-05-22 01:13:03', 'Novi Sad', 'Cao hoce neko na kafu?'),
+(4, 'test2@gmail.com', 'Tamas', 'Varga', '$2y$10$ABlDqTX4o9/jF/PHL/0Kpe0Lg5MqP.kdXaVL9kjX8HQAvTsASqjDG', 0, NULL, 1, '2022-05-22 01:13:12', 'Budapest', 'Szia, whats up?'),
+(5, 'test3@gmail.com', 'David', 'Davidov', '$2y$10$g11rd0qOGOKOnHwKT6xxm.XKxUaXh45TsSfkeFC2ybrlAzIuhBqlS', 0, NULL, 1, '2022-05-22 01:13:20', 'Bratislava', 'Hello, I\'m currently editing my profile, check back later ;)'),
+(14, '2000boris@gmail.com', 'Boris', 'Vidakovic', '$2y$10$t.y6HB32vRwUaD4P3CkZV.Pq00UfEU8DtGR6sf7P7JeweVWpz92rO', 1, NULL, 1, '2022-05-22 05:23:15', 'Kraguljevac', 'Boris from Kraguljevac, volim da igram fudbal i stoni tenis.');
 
 --
 -- Indexes for dumped tables
@@ -328,7 +321,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -340,97 +333,13 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `location_rating`
 --
 ALTER TABLE `location_rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
-
-//CSIHA!!!!!!!!!!!!!!!!!!!!!! INNENTOL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: May 22, 2022 at 02:36 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `bizkod`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `is_admin` tinyint(4) NOT NULL DEFAULT 0,
-  `verification_code` varchar(200) DEFAULT NULL,
-  `is_verified` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `description` varchar(3096) NOT NULL,
-  `origin` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `password`, `is_admin`, `verification_code`, `is_verified`, `created_at`, `description`, `origin`) VALUES
-(1, 'jacint9876543210@gmail.com', 'Juhasz', 'Jacint', '$2y$10$As7oax0KKxV4uKUuUGo5o.QggDMPV8K/gEucA18T0O4FoRPih4lRu', 1, NULL, 1, '2022-05-21 14:57:35', '', ''),
-(2, 'valaki@gmail.com', 'asd', 'asdasd', '$2y$10$qIKfDTvBU2QXPYV3XhNj7.8SRkYFrnD4zSw7fQ81ZAretpS1apQsS', 0, '6fef8bef2e59aec788f051e5eb9292f8', 0, '2022-05-21 18:09:14', '', ''),
-(3, 'qwerty@tippnet.rs', 'qwerty', 'ytrewq', '$2y$10$u692BQeS1D9a6utI0oGleeQwMGi2ebQTaxr3vHyIw5Z18s3CBQMA6', 0, '094cd2d69553d8db520b7d2d3e7dfe25', 0, '2022-05-21 18:09:57', '', ''),
-(4, 'test@gmail.com', 'Jon', 'Doe', '$2y$10$Bzl36sK6UJ3ixbAcRu8GVu1G7iVEGqzb77l0lmlEQlE4pXoQSGoIe', 1, NULL, 0, '2022-05-20 11:46:14', '', ''),
-(5, '2000boris@gmail.com', 'Botris', 'Vidakod', '$2y$10$aGynyJe3JgyZXdww4/9KJOggbjDgVflcjMaqA0Y7vut8dIR1iZeIS', 1, NULL, 1, '2022-05-21 12:35:00', '', ''),
-(6, 'vidakovic.boris@gmail.com', 'Boban', 'Taxi', '$2y$10$tS.uhYhl5w47RvmCSCqEiu3c1ji8LwZKwKcpk5/.GagCJHflz.vr.', 0, NULL, 1, '2022-05-21 12:38:07', '', '');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
