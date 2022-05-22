@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
 	formLoading();
 	clearAlert();
-	fetchChat();
 });
 
 const formLoading = () => {
@@ -41,49 +40,4 @@ const clearAlert = () => {
 			alert.classList.add('slide-out');
 		};
 	});
-}
-
-const fetchChat = () => {
-	const chatContainer = document.getElementById('chat-container');
-	const chatInput = document.getElementById('chat-input');
-
-	fetch('http://localhost/BizKod/app/get-current-user.php')
-		.then(response => response.json())
-		.then(currentUser => {
-			if(chatContainer) {
-				setInterval(() => {
-					while (chatContainer.firstChild) {
-						chatContainer.removeChild(chatContainer.firstChild);
-					}
-
-					fetch('http://localhost/BizKod/app/get-all-chat.php')
-						.then(response => response.json())
-						.then(allChat => {
-							allChat.forEach(chat => {
-								const para = document.createElement("div");
-								const node = `
-									<div class="chat__container-row d-flex${ currentUser.id === chat.userID ? ' current-user' : '' }">
-										<div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold">
-											<a class="user-link" href="profile.php?user_id=${ chat.userID }"
-												${ chat.firstname[0].toUpperCase() } ${ chat.lastname[0].toUpperCase() }
-											</a>
-										</div>
-										<div class="right d-fl''ex flex-column">
-												<a href="profile.php?user_id=${chat.userID }" class="right-author">${ chat.firstname } ${ chat.lastname }</a>
-												<p class="right-message mb-0">${chat.message }</p>
-												<span class="right-time time-js text-muted">
-													${ moment(chat.created_at).startOf('hour').fromNow() }
-												</span>
-										</div>
-								</div>
-								`;
-								para.innerHTML = node;
-								chatContainer.appendChild(para);
-							});
-
-							chatInput.scrollIntoView();
-						});
-				}, 2000);
-			}
-		});
 }

@@ -60,7 +60,6 @@
 
         <section class="chat d-flex justify-content-center">
             <div class="chat__container col-12 col-xl-8">
-                <div id="chat-container">
                 <?php
                     $sql = "SELECT user.firstname, user.lastname, user.id AS 'user_id', chat.message, chat.created_at FROM chat INNER JOIN user ON chat.userID = user.id order by chat.created_at;";
                     $query = $conn->prepare($sql);
@@ -80,9 +79,8 @@
                     </div>
                 </div>
                 <?php endwhile; ?>
-                </div>
 
-                <div id="chat-input" class="chat__container--submit">
+                <div class="chat__container--submit">
                     <form action="sendchat.php" method="POST" class="form" id="chatform">
                         <input type="text" class="form_input" name="message" placeholder="Type here the message..." />
                         <button type="submit" class="form_btn"><i class="fa-solid fa-paper-plane"></i></button>
