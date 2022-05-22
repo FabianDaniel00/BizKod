@@ -416,6 +416,21 @@ table tr td button {
   background-color: #333;
 }
 
+.form-check-input {
+  height: 20px;
+  width: 40px !important;
+}
+
+.form-check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
 #map {
   height: 500px;
   -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);

@@ -353,6 +353,17 @@ table {
   }
 }
 
+.form-check-input {
+  height: 20px;
+  width: 40px !important;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 #map {
   height: 500px;
   box-shadow: 0 .125rem .25rem rgba(black, .075);

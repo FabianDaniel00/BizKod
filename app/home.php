@@ -28,54 +28,58 @@
 
 		<?php include "../components/alert.php"; ?>
 
-		<div class="whole">
-			<form class="container filters" method="get" action="home.php">
-				<div class="filters-grid row-cols-2">
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="church" value="church" checked>
+		<div id="map"></div>
+
+		<form class="d-flex flex-wrap mt-3 gap-3 justify-content-center align-items-center" method="get" action="home.php">
+			<div class="container">
+				<div class="row">
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="church" value="church"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "church" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="church">Church</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="culture" value="culture" checked>
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="culture" value="culture"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "culture" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="culture">Culture</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="park" value="park" checked>
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="park" value="park"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "park" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="park">Park</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="sport" value="sport" checked>
+				</div>
+				<div class="row">
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="sport" value="sport"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "sport" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="sport">Sport</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="shop" value="shop" checked>
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="shop" value="shop"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "shop" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="shop">Shop</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="hotel" value="hotel" checked>
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="hotel" value="hotel"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "hotel" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="hotel">Hotel</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="transport" value="transport" checked>
+				</div>
+				<div class="row">
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="transport" value="transport"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "transport" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="transport">Transport</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="food" value="food" checked>
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="food" value="food"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "food" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="food">Food</label>
 					</div>
-					<div class="filters-grid--item">
-						<input class="form-check-input" name="check[]" type="checkbox" id="official" value="official" checked>
+					<div class="form-check form-switch col">
+						<input class="form-check-input" name="check[]" type="checkbox" id="official" value="official"<?php if(isset($_GET["check"])) foreach($_GET["check"] as $check) echo $check == "official" ? " checked" : ""; ?>>
 						<label class="form-check-label" for="official">Official</label>
 					</div>
 				</div>
 
-				<div class="filters-grid--submit">
+				<div class="filters-grid--submit text-center mt-3">
 					<input type="submit" class="btn btn-info" />
 				</div>
-			</form>
-
-			<div id="map"></div>
-		</div>
+			</div>
+		</form>
 	</div>
 
 	<?php include "../components/footer.php"; ?>
@@ -111,7 +115,7 @@
 		else{
 			$sql = "SELECT `id`, `name`, `lat`, `lon`, `picture` FROM `location`;";
 		}
-			
+
 			$query = $conn->prepare($sql);
 			$query->execute();
 
