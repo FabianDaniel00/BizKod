@@ -147,7 +147,7 @@
       if ($query->rowCount() < 1):
     ?>
       <div class="text-center">
-        No feedback yet!
+        No feedbacks yet!
       </div>
     <?php
       endif;

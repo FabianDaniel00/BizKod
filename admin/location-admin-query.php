@@ -26,7 +26,7 @@
           }
 
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $sql = "INSERT INTO `location` (`name`, `lat`, `lon`, `description`, `type`, `picture`) VALUES (?, ?, ?, ?, ?, ?);";
+          $sql = "INSERT INTO `location` (`name`, `lat`, `lon`, `description`, `type`, `picture`, `map`) VALUES (?, ?, ?, ?, ?, ?, ?);";
           $query = $conn->prepare($sql);
           $query->execute([
             $name,
@@ -35,6 +35,7 @@
 					  $description,
             $type,
             $picture["name"],
+            $map_url,
           ]);
 
           if ($query->rowCount() > 0) {
@@ -67,8 +68,9 @@
       $description = $_POST["description"];
       $type = $_POST["type"];
       $picture = $_FILES["picture"];
+      $map_url = $_POST["map_url"];
 
-      if ($id != "" && $name != "" && $lat != "" && $lon != "" && $description != "" && $type != "" && $type != "-1") {
+      if ($id != "" && $name != "" && $lat != "" && $lon != "" && $description != "" && $type != "" && $type != "-1" && $map_url != "") {
         try {
           $query = "";
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -82,7 +84,7 @@
               return send_message("Something went wrong. Try again.", "danger", "locations-admin");
             }
 
-            $sql = "UPDATE `location` SET `name` = ?, `lat` = ?, `lon` = ?, `description` = ?, `type` = ?, `picture` = ? WHERE `id` = ?;";
+            $sql = "UPDATE `location` SET `name` = ?, `lat` = ?, `lon` = ?, `description` = ?, `type` = ?, `picture` = ?, `map_url` = ? WHERE `id` = ?;";
             $query = $conn->prepare($sql);
             $query->execute([
               $name,
@@ -91,10 +93,11 @@
               $description,
               $type,
               $picture["name"],
+              $map_url,
               $id,
             ]);
           } else {
-            $sql = "UPDATE `location` SET `name` = ?, `lat` = ?, `lon` = ?, `description` = ?, `type` = ? WHERE `id` = ?;";
+            $sql = "UPDATE `location` SET `name` = ?, `lat` = ?, `lon` = ?, `description` = ?, `type` = ?, `map` = ? WHERE `id` = ?;";
             $query = $conn->prepare($sql);
             $query->execute([
               $name,
@@ -102,6 +105,7 @@
               $lon,
               $description,
               $type,
+              $map_url,
               $id,
             ]);
           }
@@ -118,7 +122,7 @@
         } catch(PDOException $e) {
           $conn = null;
 
-          return send_message($e->getMessage, "danger", "locations-admin");
+          return send_message($e->getMessage(), "danger", "locations-admin");
         }
       } else {
         $conn = null;
