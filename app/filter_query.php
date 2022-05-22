@@ -6,15 +6,21 @@ $variables = $_POST['check'];
 
 if(count($variables) == 1) 
 {
-    $sql = "SELECT * FROM `location` WHERE type=? ;";
-			$query = $conn->prepare($sql);
-			$query->execute([$variables[0]]);
-            //var_dump($variables[0]);
-            $valami = $query->fetch();
+    $sql = "SELECT id FROM `location` WHERE type=? ;";
+    $query = $conn->prepare($sql);
+    $query->execute([$variables[0]]);
+    //var_dump($variables[0]);
+    $valami = $query->fetch();
+    header('location:home.php?type=' . $valami);
 }
 else
 {
-    echo'tobb van';
+    $sql = "SELECT id FROM `location` WHERE type=? ;";
+    $query = $conn->prepare($sql);
+    $query->execute([$variables[0]]);
+    //var_dump($variables[0]);
+    $valami = $query->fetch();
+    header('location:home.php?type=' . $valami);
 }
 
 var_dump($variables);

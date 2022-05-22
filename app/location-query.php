@@ -13,9 +13,12 @@
 
 		if ($message != "" && $location_id != "" && $rating != "" && $rating != "0") {
 			try {
-				$sql = "SELECT `id` FROM `location_rating` WHERE `user_id` = ?;";
+				$sql = "SELECT `id` FROM `location_rating` WHERE `user_id` = ? AND `location_id` = ?;";
 				$query = $conn->prepare($sql);
-				$query->execute([$current_user["id"]]);
+				$query->execute([
+					$current_user["id"],
+					$location_id,
+				]);
 
 				if ($query->rowCount() > 0) {
 					$conn = null;
