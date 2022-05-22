@@ -31,7 +31,7 @@
           if ($query->rowCount() > 0) {
             $conn = null;
 
-            return send_message("User successfully added.", "succes", "user-admin");
+            return send_message("User successfully added.", "success", "user-admin");
           } else {
             $conn = null;
 

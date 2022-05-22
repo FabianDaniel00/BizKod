@@ -40,7 +40,7 @@
           if ($query->rowCount() > 0) {
             $conn = null;
 
-            return send_message("Location successfully added.", "succes", "locations-admin");
+            return send_message("Location successfully added.", "success", "locations-admin");
           } else {
             $conn = null;
 

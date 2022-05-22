@@ -8,20 +8,22 @@
 		$email = $_POST["email"];
 		$firstname = $_POST["firstname"];
 		$lastname = $_POST["lastname"];
+		$origin = $_POST["origin"];
+		$description = $_POST["description"];
 		$plain_password = $_POST["password"];
 		$confirm_password = $_POST["confirm_password"];
 
-		if ($email != "" && $firstname != "" && $lastname != "" && $plain_password != "" && $confirm_password != "") {
+		if ($email != "" && $firstname != "" && $lastname != "" && $plain_password != "" && $confirm_password != "" && $origin != "" && $description != "") {
 			if (strlen($plain_password) < 6) {
 				$conn = null;
 
-				return send_message("Password must be at least 6 characters.", "danger", "registration", [$email, $firstname, $lastname]);
+				return send_message("Password must be at least 6 characters.", "danger", "registration", [$email, $firstname, $lastname, $origin, $description]);
 			}
 
 			if ($plain_password != $confirm_password) {
 				$conn = null;
 
-				return send_message("Passwords must match.", "danger", "registration", [$email, $firstname, $lastname]);
+				return send_message("Passwords must match.", "danger", "registration", [$email, $firstname, $lastname, $origin, $description]);
 			}
 
 			$sql = "SELECT `id` FROM `user` WHERE `email` = ?;";
@@ -31,14 +33,14 @@
 			if ($query->rowCount() > 0) {
 				$conn = null;
 
-				return send_message("There is already user with this email.", "danger", "registration", [$email, $firstname, $lastname]);
+				return send_message("There is already user with this email.", "danger", "registration", [$email, $firstname, $lastname, $origin, $description]);
 			}
 
 			try {
 				$verification_code = bin2hex(random_bytes(32));
 
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$sql = "INSERT INTO `user` (`email`, `firstname`, `lastname`, `password`, `verification_code`) VALUES (?, ?, ?, ?, ?);";
+				$sql = "INSERT INTO `user` (`email`, `firstname`, `lastname`, `password`, `verification_code`, `origin`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?);";
 				$query = $conn->prepare($sql);
 				$query->execute([
 					$email,
@@ -46,6 +48,8 @@
 					$lastname,
 					password_hash($plain_password, PASSWORD_BCRYPT),
 					md5($verification_code),
+					$origin,
+					$description,
 				]);
 
 				$body = '
@@ -66,17 +70,17 @@
 				} else {
 					$conn = null;
 
-					return send_message("Something went wrong. Try again.", "danger", "registration", [$email, $firstname, $lastname]);
+					return send_message("Something went wrong. Try again.", "danger", "registration", [$email, $firstname, $lastname, $origin, $description]);
 				}
 			} catch (PDOException $e) {
 				$conn = null;
 
-				return send_message($e->getMessage(), "danger", "registration", [$email, $firstname, $lastname]);
+				return send_message($e->getMessage(), "danger", "registration", [$email, $firstname, $lastname, $origin, $description]);
 			}
 		} else {
 			$conn = null;
 
-			return send_message("Please fill up the required fields!", "danger", "registration", [$email, $firstname, $lastname]);
+			return send_message("Please fill up the required fields!", "danger", "registration", [$email, $firstname, $lastname, $origin, $description]);
 		}
 	}
 

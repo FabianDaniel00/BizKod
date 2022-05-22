@@ -24,7 +24,7 @@
       $inputs = $has_inputs ? $_SESSION["inputs"] : null;
     ?>
 
-		<form action="registration-query.php" method="POST">
+		<form id="register" action="registration-query.php" method="POST">
 			<h4 class="text-success">Register here...</h4>
 			<hr style="border-top: 1px groovy #000;">
 
@@ -41,6 +41,16 @@
 			<div class="form- mb-3">
 				<label class="form-label">Lastname <sup class="text-danger">*</sup></label>
 				<input type="text" class="form-control" name="lastname" placeholder="Doe" value="<?php echo $has_inputs ? $inputs["lastname"] : ""; ?>" required />
+			</div>
+
+			<div class="form- mb-3">
+				<label class="form-label">Origin <sup class="text-danger">*</sup></label>
+				<input type="text" class="form-control" name="origin" placeholder="Subotica" value="<?php echo $has_inputs ? $inputs["origin"] : ""; ?>" required />
+			</div>
+
+			<div class="mb-3">
+				<label for="description" class="form-label">Description <sup class="text-danger">*</sup></label>
+				<textarea class="form-control" form="register" id="description" name="description" rows="3" placeholder="Description..."><?php echo $has_inputs ? $inputs["origin"] : ""; ?></textarea>
 			</div>
 
 			<div class="form-group mb-3">
