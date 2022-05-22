@@ -352,11 +352,18 @@ table {
   box-shadow: 0 .125rem .25rem rgba(black, .075);
 }
 
-hr#custom-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+hr {
+  &#custom-hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+  &.dashed-hr {
+    background-color: #fff;
+    border-top: 2px dashed #8c8b8b;
+  }
 }
+
 
 .profile {
   min-height: 70vh;

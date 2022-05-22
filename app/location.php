@@ -12,7 +12,7 @@
 		return header("Location: login.php");
 	}
 
-  $sql = "SELECT AVG(location_rating.rating) AS 'avg_rating', COUNT(location_rating.rating) AS 'rating_count', location.id, location.name, location.lat, location.lon, location.picture, location.description, location.type, location.map FROM `location` INNER JOIN `location_rating` ON location.id = location_rating.location_id WHERE location.id = ?;";
+  $sql = "SELECT AVG(location_rating.rating) AS 'avg_rating', COUNT(location_rating.rating) AS 'rating_count', location.id, location.name, location.picture, location.description, location.type, location.map FROM `location` INNER JOIN `location_rating` ON location.id = location_rating.location_id WHERE location.id = ?;";
   $query = $conn->prepare($sql);
   $query->execute([$_GET["location-id"]]);
 
@@ -29,7 +29,7 @@
 	<?php include "../components/navbar.php"; ?>
 
 	<div class="px-3 bg-white">
-		<h3 class="text-primary"><?php echo $location["name"]; ?></h3>
+		<h3 class="text-primary mt-2"><?php echo $location["name"]; ?><i> (<?php echo $location["type"]; ?>)</i></h3>
 		<hr style="border-top: 1px dotted #ccc;"/>
 
     <iframe
@@ -42,6 +42,10 @@
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
     <div class="text-center">
+      <hr class="dashed-hr" />
+      <div class="col-12 col-lg-8 mx-auto fs-5"><?php echo $location["description"]; ?></div>
+      <hr class="dashed-hr" />
+
       <span class="d-flex gap-1 text-warning justify-content-center align-items-center my-2">
         <span class="text-black">Average rating: </span>
         <?php

@@ -51,33 +51,33 @@
             <div class="modal-body">
               <form id="userInsertForm" action="user-admin-query.php" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" class="form-label">Email <sup class="text-danger">*</sup></label>
                   <input type="email" class="form-control" name="email" id="email" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="firstname" class="form-label">Firstname</label>
+                  <label for="firstname" class="form-label">Firstname <sup class="text-danger">*</sup></label>
                   <input type="text" class="form-control" name="firstname" id="firstname" value="<?php echo $has_inputs ? $inputs["firstname"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="lastname" class="form-label">Lastname</label>
+                  <label for="lastname" class="form-label">Lastname <sup class="text-danger">*</sup></label>
                   <input type="text" class="form-control" name="lastname" id="lastname" value="<?php echo $has_inputs ? $inputs["lastname"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="password" class="form-label">Password</label>
+                  <label for="password" class="form-label">Password <sup class="text-danger">*</sup></label>
                   <input type="password" class="form-control" name="password" id="password" required>
                 </div>
 
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin"<?php echo $has_inputs ? ($inputs["is_admin"] ? " checked" : "") : ""; ?>>
-                  <label class="form-check-label" for="is_admin">Is Admin</label>
+                  <label class="form-check-label" for="is_admin">Is Admin <sup class="text-danger">*</sup></label>
                 </div>
 
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" name="is_verified" id="is_verified"<?php echo $has_inputs ? ($inputs["is_verified"] ? " checked" : "") : ""; ?>>
-                  <label class="form-check-label" for="is_verified">Is Verified</label>
+                  <label class="form-check-label" for="is_verified">Is Verified <sup class="text-danger">*</sup></label>
                 </div>
 
                 <input type="hidden" name="user-insert" />
@@ -137,8 +137,8 @@
                   <?php echo $user["is_verified"] ? "True" : "False"; ?>
                 </span>
               </td>
-              <td class="d-flex justify-content-center gap-3">
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#userEditModal<?php echo $user["id"]; ?>">
+              <td class="text-center">
+                <button type="button" class="btn btn-warning me-0 me-md-3 mb-3 mb-md-0" data-bs-toggle="modal" data-bs-target="#userEditModal<?php echo $user["id"]; ?>">
                   <i class="fa-solid fa-pen-to-square me-1"></i>
                   Edit
                 </button>
@@ -148,7 +148,7 @@
                   Delete
                 </button>
 
-                <div class="modal fade" id="userEditModal<?php echo $user["id"]; ?>" tabindex="-1" aria-labelledby="userEditModal<?php echo $user["id"]; ?>Label" aria-hidden="true">
+                <div class="modal fade text-start" id="userEditModal<?php echo $user["id"]; ?>" tabindex="-1" aria-labelledby="userEditModal<?php echo $user["id"]; ?>Label" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
 
@@ -160,28 +160,28 @@
                       <div class="modal-body">
                         <form id="editUserForm<?php echo $user["id"]; ?>" action="user-admin-query.php" method="POST">
                           <div class="mb-3">
-                            <label for="email<?php echo $user["id"]; ?>" class="form-label">Email</label>
+                            <label for="email<?php echo $user["id"]; ?>" class="form-label">Email <sup class="text-danger">*</sup></label>
                             <input type="email" class="form-control" name="email" id="email<?php echo $user["id"]; ?>" value="<?php echo $user["email"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="firstname<?php echo $user["id"]; ?>" class="form-label">Firstname</label>
+                            <label for="firstname<?php echo $user["id"]; ?>" class="form-label">Firstname <sup class="text-danger">*</sup></label>
                             <input type="text" class="form-control" name="firstname" id="firstname<?php echo $user["id"]; ?>" value="<?php echo $user["firstname"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="lastname<?php echo $user["id"]; ?>" class="form-label">Lastname</label>
+                            <label for="lastname<?php echo $user["id"]; ?>" class="form-label">Lastname <sup class="text-danger">*</sup></label>
                             <input type="text" class="form-control" name="lastname" id="lastname<?php echo $user["id"]; ?>" value="<?php echo $user["lastname"]; ?>" required>
                           </div>
 
                           <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin<?php echo $user["id"]; ?>"<?php echo $user["is_admin"] ? " checked" : ""; ?>>
-                            <label class="form-check-label" for="is_admin<?php echo $user["id"]; ?>">Is Admin</label>
+                            <label class="form-check-label" for="is_admin<?php echo $user["id"]; ?>">Is Admin <sup class="text-danger">*</sup></label>
                           </div>
 
                           <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" name="is_verified" id="is_verified<?php echo $user["id"]; ?>"<?php echo $user["is_verified"] ? " checked" : ""; ?>>
-                            <label class="form-check-label" for="is_verified<?php echo $user["id"]; ?>">Is Verified</label>
+                            <label class="form-check-label" for="is_verified<?php echo $user["id"]; ?>">Is Verified <sup class="text-danger">*</sup></label>
                           </div>
 
                           <input type="hidden" name="id" value="<?php echo $user["id"]; ?>" />
@@ -203,7 +203,7 @@
                   </div>
                 </div>
 
-                <div class="modal fade" id="userDeleteModal<?php echo $user["id"]; ?>" tabindex="-1" aria-labelledby="userDeleteModal<?php echo $user["id"]; ?>Label" aria-hidden="true">
+                <div class="modal fade text-start" id="userDeleteModal<?php echo $user["id"]; ?>" tabindex="-1" aria-labelledby="userDeleteModal<?php echo $user["id"]; ?>Label" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
 

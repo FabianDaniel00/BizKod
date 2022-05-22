@@ -12,7 +12,7 @@ const formLoading = () => {
 			if (submitButton) {
 				submitButton.innerHTML = loadingHTML;
 			} else {
-				document.querySelector(`[form="${ form.getAttribute('id') }"]`).innerHTML = loadingHTML;
+				document.querySelector(`button[form="${ form.getAttribute('id') }"]`).innerHTML = loadingHTML;
 			}
 		}
 	});
