@@ -14,35 +14,34 @@
 		return header("Location: login.php");
 	}
 
-    // function time_ago_en($time)
-    // {
-    //     if(!is_numeric($time))
-    //         $time = strtotime($time);
+    function time_ago_en($time)
+    {
+        if(!is_numeric($time))
+            $time = strtotime($time);
 
-    //     $periods = array("second", "minute", "hour", "day", "week", "month", "year", "age");
-    //     $lengths = array("60","60","24","7","4.35","12","100");
+        $periods = array("second", "minute", "hour", "day", "week", "month", "year", "age");
+        $lengths = array("60","60","24","7","4.35","12","100");
 
-    //     $now = time();
+        $now = time();
 
-    //     $difference = $now - $time;
-    //     if ($difference <= 10 && $difference >= 0)
-    //         return $tense = 'just now';
-    //     elseif($difference > 0)
-    //         $tense = 'ago';
-    //     elseif($difference < 0)
-    //         $tense = 'later';
+        $difference = $now - $time;
+        if ($difference <= 10 && $difference >= 0)
+            return $tense = 'just now';
+        elseif($difference > 0)
+            $tense = 'ago';
+        elseif($difference < 0)
+            $tense = 'later';
 
-    //     for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
-    //         $difference /= $lengths[$j];
-    //     }
+        for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+            $difference /= $lengths[$j];
+        }
 
-    //     $difference = round($difference);
+        $difference = round($difference);
 
-    //     $period =  $periods[$j] . ($difference >1 ? 's' :'');
-    //     return "{$difference} {$period} {$tense} ";
-    // }
+        $period =  $periods[$j] . ($difference >1 ? 's' :'');
+        return "{$difference} {$period} {$tense} ";
+    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -67,23 +66,23 @@
                     $query->execute();
                     while($chat = $query->fetch()):
                 ?>
+                <!--<a href="profile.php?user_id=2">JD</a> -->
                 <div class="chat__container-row d-flex<?php echo $current_user["id"] == $chat["user_id"] ? " current-user" : "" ; ?>">
-                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold"><?php 
-                        echo strtoupper($chat["firstname"][0]) . strtoupper($chat["lastname"][0]);
-                    ?></div>
+                    <div class="user rounded-circle d-flex justify-content-center align-items-center shadow-sm fw-bold"><a class="user-link" href="profile.php?user_id=<?php echo $chat["user_id"]; ?>"><?php 
+                        echo strtoupper($chat["firstname"][0]) . strtoupper($chat["lastname"][0]) ;?></a></div>
                     
-                    <div class="right d-flex flex-column">
-                        <span class="right-author"><?php echo $chat["firstname"]." " . $chat["lastname"];?></span>
+                    <div class="right d-fl''ex flex-column">
+                        <a href="profile.php?user_id=<?php echo $chat["user_id"]; ?>" class="right-author"><?php echo $chat["firstname"]." " . $chat["lastname"];?></a>
                         <p class="right-message mb-0"><?php echo $chat["message"]; ?></p>
-                        <span class="right-time time-js">16:15
+                        <span class="right-time time-js text-muted"><?php echo time_ago_en($chat["created_at"]); ?>
                         </span>
                     </div>
                 </div>
                 <?php endwhile; ?>
 
                 <div class="chat__container--submit">
-                    <form action="chat-query.php" method="POST" class="form">
-                        <input type="text" class="form_input" placeholder="Type here the message..." />
+                    <form action="sendchat.php" method="POST" class="form">
+                        <input type="text" class="form_input" name="message" placeholder="Type here the message..." />
                         <button type="submit" name="message" class="form_btn"><i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                 </div>
