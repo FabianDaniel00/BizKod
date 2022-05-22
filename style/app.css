@@ -499,4 +499,68 @@ hr#custom-hr {
 .profile__container .datas-name, .profile__container .datas-home, .profile__container .datas-email {
   color: #333;
 }
+
+.whole {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 1200px) {
+  .whole {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.whole .filters {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+}
+
+@media (max-width: 1200px) {
+  .whole .filters {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+}
+
+.whole .filters-grid {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+}
+
+.whole .filters-grid--item {
+  margin: 10px;
+}
+
+.whole .filters-grid--submit {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.whole #map {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 70%;
+          flex: 1 1 70%;
+  height: 500px;
+}
+
+@media (max-width: 1200px) {
+  .whole #map {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    min-height: 500px;
+  }
+}
 /*# sourceMappingURL=app.css.map */

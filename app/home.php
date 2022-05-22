@@ -28,12 +28,58 @@
 
 		<?php include "../components/alert.php"; ?>
 
-		<h2>Map</h2>
+		<div class="whole">
+			<form class="container filters">
+				<div class="filters-grid row-cols-2">
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="church" checked>
+						<label class="form-check-label" for="church">Church</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="culture" checked>
+						<label class="form-check-label" for="culture">Culture</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="park" checked>
+						<label class="form-check-label" for="park">Park</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="sport" checked>
+						<label class="form-check-label" for="sport">Sport</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="shop" checked>
+						<label class="form-check-label" for="shop">Shop</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="hotel" checked>
+						<label class="form-check-label" for="hotel">Hotel</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="transport" checked>
+						<label class="form-check-label" for="transport">Transport</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="food" checked>
+						<label class="form-check-label" for="food">Food</label>
+					</div>
+					<div class="filters-grid--item">
+						<input class="form-check-input" type="checkbox" id="official" checked>
+						<label class="form-check-label" for="official">Official</label>
+					</div>
+				</div>
 
-		<div id="map"></div>
+				<div class="filters-grid--submit">
+					<input type="submit" class="btn btn-info" />
+				</div>
+			</form>
+
+			<div id="map"></div>
+		</div>
 	</div>
 
 	<?php include "../components/footer.php"; ?>
+	
 
 	<script>
 		const map = L.map('map').setView([46.10289612591827, 19.667341720175024], 15);

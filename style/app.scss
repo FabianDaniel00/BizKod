@@ -425,3 +425,44 @@ hr#custom-hr {
     }
   }
 }
+
+.whole {
+  display: flex;
+
+  @media(max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  .filters {
+    flex: 1 1 30%;
+
+    @media(max-width: 1200px) {
+      flex: 1 1 100%;
+    }
+
+    &-grid {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, auto);
+    
+      &--item {
+        margin: 10px;
+      }
+
+      &--submit {
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+  }
+  
+  #map {
+    flex: 1 1 70%;
+    height: 500px;
+
+    @media(max-width: 1200px) {
+      flex: 1 1 100%;
+      min-height: 500px;
+    }
+  }
+}
