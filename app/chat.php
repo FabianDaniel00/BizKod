@@ -81,9 +81,9 @@
                 <?php endwhile; ?>
 
                 <div class="chat__container--submit">
-                    <form action="sendchat.php" method="POST" class="form">
+                    <form action="sendchat.php" method="POST" class="form" id="chatform">
                         <input type="text" class="form_input" name="message" placeholder="Type here the message..." />
-                        <button type="submit" name="message" class="form_btn"><i class="fa-solid fa-paper-plane"></i></button>
+                        <button type="submit" class="form_btn"><i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>

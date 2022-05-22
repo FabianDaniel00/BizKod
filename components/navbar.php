@@ -42,11 +42,11 @@
 
       <div class="d-flex align-items-center order-first order-xl-last user">
         <?php if ($_SESSION["current_user"]): ?>
-          <a class="user__badge rounded-circle d-flex justify-content-center align-items-center shadow fw-bold" href="<?php echo $from_admin ? "../app/" : ""; ?>profile.php">
+          <a class="user__badge rounded-circle d-flex justify-content-center align-items-center shadow fw-bold" href="<?php echo $from_admin ? "../app/" : ""; ?>profile.php?user_id=<?php echo $_SESSION['current_user']['id']?>">
             <?php echo strtoupper(substr($current_user["firstname"], 0, 1).substr($current_user["lastname"], 0, 1)); ?>
           </a>
 
-          <a class="user__name" href="<?php echo $from_admin ? "../app/" : ""; ?>profile.php">
+          <a class="user__name" href="<?php echo $from_admin ? "../app/" : ""; ?>profile.php?user_id=<?php echo $_SESSION['current_user']['id']?>">
             <?php echo $current_user["firstname"]." ".$current_user["lastname"].($current_user["is_admin"] ? " (Admin)" : ""); ?>
           </a>
         <?php endif; ?>
