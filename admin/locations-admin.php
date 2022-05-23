@@ -34,22 +34,22 @@
     ?>
 
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userInsertModal">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#locationInsertModal">
         <i class="fa-solid fa-plus me-1"></i>
         Add new location
       </button>
 
-      <div class="modal fade" id="userInsertModal" tabindex="-1" aria-labelledby="userInsertModalLabel" aria-hidden="true">
+      <div class="modal fade" id="locationInsertModal" tabindex="-1" aria-labelledby="locationInsertModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
 
             <div class="modal-header">
-              <h5 class="modal-title" id="userInsertModalLabel">Add new location</h5>
+              <h5 class="modal-title" id="locationInsertModalLabel">Add new location</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-              <form id="userInsertForm" action="location-admin-query.php" method="POST" enctype="multipart/form-data">
+              <form id="locationInsertForm" action="location-admin-query.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                   <input type="name" class="form-control" name="name" id="name" value="<?php echo $has_inputs ? $inputs["name"] : ""; ?>" required>
@@ -67,12 +67,12 @@
 
                 <div class="mb-3">
                   <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
-                  <textarea class="form-control" id="description" form="userInsertForm" name="description" rows="3" placeholder="Description..." required><?php echo $has_inputs ? $inputs["description"] : ""; ?></textarea>
+                  <textarea class="form-control" id="description" form="locationInsertForm" name="description" rows="3" placeholder="Description..." required><?php echo $has_inputs ? $inputs["description"] : ""; ?></textarea>
                 </div>
 
                 <div class="mb-3">
                   <label for="map_url" class="form-label">Map url <span class="text-danger">*</span></label>
-                  <textarea class="form-control" id="map_url" form="userInsertForm" name="map_url" rows="3" placeholder="Map url..."><?php echo $has_inputs ? $inputs["map_url"] : ""; ?></textarea>
+                  <textarea class="form-control" id="map_url" form="locationInsertForm" name="map_url" rows="3" placeholder="Map url..."><?php echo $has_inputs ? $inputs["map_url"] : ""; ?></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -105,7 +105,7 @@
                 <i class="fa-solid fa-xmark me-1"></i>
                 Cancel
               </button>
-              <button type="submit" form="userInsertForm" class="btn btn-success">
+              <button type="submit" form="locationInsertForm" class="btn btn-success">
                 <i class="fa-solid fa-plus me-1"></i>
                 Add location
               </button>
@@ -147,27 +147,27 @@
                 <img src="../images/map/<?php echo $location["picture"]; ?>" alt="<?php echo $location["name"]; ?>" width="100px" class="rounded-3 shadow-sm" />
               </td>
               <td class="text-center">
-                <button type="button" class="btn btn-warning me-0 me-md-3 mb-3 mb-md-0" data-bs-toggle="modal" data-bs-target="#userEditModal<?php echo $location["id"]; ?>">
+                <button type="button" class="btn btn-warning me-0 me-md-3 mb-3 mb-md-0" data-bs-toggle="modal" data-bs-target="#locationEditModal<?php echo $location["id"]; ?>">
                   <i class="fa-solid fa-pen-to-square me-1"></i>
                   Edit
                 </button>
 
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#userDeleteModal<?php echo $location["id"]; ?>">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#locationDeleteModal<?php echo $location["id"]; ?>">
                   <i class="fa-solid fa-trash-can me-1"></i>
                   Delete
                 </button>
 
-                <div class="modal fade text-start" id="userEditModal<?php echo $location["id"]; ?>" tabindex="-1" aria-labelledby="userEditModal<?php echo $location["id"]; ?>Label" aria-hidden="true">
+                <div class="modal fade text-start" id="locationEditModal<?php echo $location["id"]; ?>" tabindex="-1" aria-labelledby="locationEditModal<?php echo $location["id"]; ?>Label" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
 
                       <div class="modal-header">
-                        <h5 class="modal-title" id="userEditModal<?php echo $location["id"]; ?>Label">Edit Location #<?php echo $location["id"]; ?></h5>
+                        <h5 class="modal-title" id="locationEditModal<?php echo $location["id"]; ?>Label">Edit Location #<?php echo $location["id"]; ?></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
 
                       <div class="modal-body">
-                        <form id="userEditForm<?php echo $location["id"]; ?>" action="location-admin-query.php" method="POST" enctype="multipart/form-data">
+                        <form id="locationEditForm<?php echo $location["id"]; ?>" action="location-admin-query.php" method="POST" enctype="multipart/form-data">
                           <div class="mb-3">
                             <label for="name<?php echo $location["id"]; ?>" class="form-label">Name <span class="text-danger">*</span></label>
                             <input type="name" class="form-control" name="name" id="name<?php echo $location["id"]; ?>" value="<?php echo $location["name"]; ?>" required>
@@ -185,12 +185,12 @@
 
                           <div class="mb-3">
                             <label for="description<?php echo $location["id"]; ?>" class="form-label">Description <span class="text-danger">*</span></label>
-                            <textarea class="form-control" form="userEditForm<?php echo $location["id"]; ?>" id="description<?php echo $location["id"]; ?>" name="description" rows="3" placeholder="Description..." required><?php echo $location["description"]; ?></textarea>
+                            <textarea class="form-control" form="locationEditForm<?php echo $location["id"]; ?>" id="description<?php echo $location["id"]; ?>" name="description" rows="3" placeholder="Description..." required><?php echo $location["description"]; ?></textarea>
                           </div>
 
                           <div class="mb-3">
                             <label for="map_url<?php echo $location["id"]; ?>" class="form-label">Map url <span class="text-danger">*</span></label>
-                            <textarea class="form-control" form="userEditForm<?php echo $location["id"]; ?>" id="map_url<?php echo $location["id"]; ?>" name="map_url" rows="3" placeholder="Map url..."><?php echo $location["map"]; ?></textarea>
+                            <textarea class="form-control" form="locationEditForm<?php echo $location["id"]; ?>" id="map_url<?php echo $location["id"]; ?>" name="map_url" rows="3" placeholder="Map url..."><?php echo $location["map"]; ?></textarea>
                           </div>
 
                           <div class="mb-3">
@@ -224,7 +224,7 @@
                           <i class="fa-solid fa-xmark me-1"></i>
                           Cancel
                         </button>
-                        <button type="submit" form="userEditForm<?php echo $location["id"]; ?>" class="btn btn-success">
+                        <button type="submit" form="locationEditForm<?php echo $location["id"]; ?>" class="btn btn-success">
                           <i class="fa-solid fa-floppy-disk me-1"></i>
                           Save Changes
                         </button>
@@ -233,12 +233,12 @@
                   </div>
                 </div>
 
-                <div class="modal fade text-start" id="userDeleteModal<?php echo $location["id"]; ?>" tabindex="-1" aria-labelledby="userDeleteModal<?php echo $location["id"]; ?>Label" aria-hidden="true">
+                <div class="modal fade text-start" id="locationDeleteModal<?php echo $location["id"]; ?>" tabindex="-1" aria-labelledby="locationDeleteModal<?php echo $location["id"]; ?>Label" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
 
                       <div class="modal-header">
-                        <h5 class="modal-title" id="userDeleteModal<?php echo $location["id"]; ?>Label">Are you sure want to delete this location?</h5>
+                        <h5 class="modal-title" id="locationDeleteModal<?php echo $location["id"]; ?>Label">Are you sure want to delete this location?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
 

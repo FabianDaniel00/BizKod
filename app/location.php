@@ -29,7 +29,15 @@
 	<?php include "../components/navbar.php"; ?>
 
 	<div class="px-3 bg-white">
-		<h3 class="text-primary mt-2"><?php echo $location["name"]; ?><i> (<?php echo $location["type"]; ?>)</i></h3>
+    <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center">
+		  <h3 class="text-primary mt-2"><?php echo $location["name"]; ?><i> (<?php echo $location["type"]; ?>)</i></h3>
+      <?php if ($current_user["is_admin"]): ?>
+        <a href="../admin/locations-admin.php?edit_location=<?php echo $location["id"]; ?>" class="btn btn-warning">
+          <i class="fa-solid fa-pen-to-square"></i>
+          Edit
+        </a>
+      <?php endif; ?>
+    </div>
 		<hr style="border-top: 1px dotted #ccc;"/>
 
     <iframe

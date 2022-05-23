@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
 	formLoading();
 	clearAlert();
+	autoOpenLocationEditModal();
 });
 
 const formLoading = () => {
@@ -40,4 +41,18 @@ const clearAlert = () => {
 			alert.classList.add('slide-out');
 		};
 	});
+}
+
+const autoOpenLocationEditModal = () => {
+	const params = new Proxy(new URLSearchParams(window.location.search), {
+		get: (searchParams, prop) => searchParams.get(prop),
+	});
+
+	if (params.edit_location != "") {
+		const editModalButton = document.querySelector(`[data-bs-target="#locationEditModal${ params.edit_location }"]`);
+
+		if (editModalButton) {
+			editModalButton.click();
+		}
+	}
 }

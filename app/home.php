@@ -30,7 +30,7 @@
 
 		<div id="map"></div>
 
-		<form class="d-flex flex-wrap mt-3 gap-3 justify-content-center align-items-center" method="get" action="home.php">
+		<form class="d-flex flex-wrap mt-3 justify-content-center align-items-center" method="get" action="home.php">
 			<div class="container">
 				<div class="row">
 					<div class="form-check form-switch col">
