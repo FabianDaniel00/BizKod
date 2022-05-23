@@ -29,13 +29,13 @@
 			<hr style="border-top: 1px groovy #000;">
 
 			<div class="form-group mb-3">
-				<label class="form-label">Email</label>
-				<input type="email" class="form-control" name="email" placeholder="example@email.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
+				<label class="form-label" for="email">Email</label>
+				<input id="email" type="email" class="form-control" name="email" placeholder="example@email.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
 			</div>
 
 			<div class="form-group mb-3">
-				<label class="form-label">Password</label>
-				<input type="password" class="form-control" name="password" placeholder="password..." required />
+				<label class="form-label" for="password">Password</label>
+				<input id="password" type="password" class="form-control" name="password" placeholder="password..." required />
 			</div>
 
 			<br />

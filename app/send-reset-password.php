@@ -29,8 +29,8 @@
 			<hr style="border-top: 1px groovy #000;">
 
 			<div class="form-group mb-3">
-				<label class="form-label">Your Email</label>
-				<input type="email" class="form-control" name="email" placeholder="example@email.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
+				<label class="form-label" for="email">Your Email</label>
+				<input id="email" type="email" class="form-control" name="email" placeholder="example@email.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
 			</div>
 
 			<br />

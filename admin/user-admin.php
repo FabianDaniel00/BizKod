@@ -51,33 +51,43 @@
             <div class="modal-body">
               <form id="userInsertForm" action="user-admin-query.php" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email <sup class="text-danger">*</sup></label>
+                  <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                   <input type="email" class="form-control" name="email" id="email" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="firstname" class="form-label">Firstname <sup class="text-danger">*</sup></label>
+                  <label for="firstname" class="form-label">Firstname <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="firstname" id="firstname" value="<?php echo $has_inputs ? $inputs["firstname"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="lastname" class="form-label">Lastname <sup class="text-danger">*</sup></label>
+                  <label for="lastname" class="form-label">Lastname <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="lastname" id="lastname" value="<?php echo $has_inputs ? $inputs["lastname"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="password" class="form-label">Password <sup class="text-danger">*</sup></label>
+                  <label for="origin" class="form-label">Origin</label>
+                  <input type="text" class="form-control" name="origin" id="origin" value="<?php echo $has_inputs ? $inputs["origin"] : ""; ?>" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea class="form-control" form="userInsertForm" id="description" name="description" rows="3" placeholder="Description..."><?php echo $has_inputs ? $inputs["description"] : ""; ?></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                   <input type="password" class="form-control" name="password" id="password" required>
                 </div>
 
-                <div class="mb-3 form-check">
+                <div class="mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin"<?php echo $has_inputs ? ($inputs["is_admin"] ? " checked" : "") : ""; ?>>
-                  <label class="form-check-label" for="is_admin">Is Admin <sup class="text-danger">*</sup></label>
+                  <label class="form-check-label" for="is_admin">Is Admin <span class="text-danger">*</span></label>
                 </div>
 
-                <div class="mb-3 form-check">
+                <div class="mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" name="is_verified" id="is_verified"<?php echo $has_inputs ? ($inputs["is_verified"] ? " checked" : "") : ""; ?>>
-                  <label class="form-check-label" for="is_verified">Is Verified <sup class="text-danger">*</sup></label>
+                  <label class="form-check-label" for="is_verified">Is Verified <span class="text-danger">*</span></label>
                 </div>
 
                 <input type="hidden" name="user-insert" />
@@ -116,7 +126,7 @@
           <?php
             unset($_SESSION["inputs"]);
 
-            $sql = "SELECT `id`, `email`, `firstname`, `lastname`, `is_admin`, `is_verified` FROM `user`;";
+            $sql = "SELECT `id`, `email`, `firstname`, `lastname`, `origin`, `description`, `is_admin`, `is_verified` FROM `user`;";
             $query = $conn->prepare($sql);
             $query->execute();
 
@@ -160,28 +170,38 @@
                       <div class="modal-body">
                         <form id="editUserForm<?php echo $user["id"]; ?>" action="user-admin-query.php" method="POST">
                           <div class="mb-3">
-                            <label for="email<?php echo $user["id"]; ?>" class="form-label">Email <sup class="text-danger">*</sup></label>
+                            <label for="email<?php echo $user["id"]; ?>" class="form-label">Email <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" name="email" id="email<?php echo $user["id"]; ?>" value="<?php echo $user["email"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="firstname<?php echo $user["id"]; ?>" class="form-label">Firstname <sup class="text-danger">*</sup></label>
+                            <label for="firstname<?php echo $user["id"]; ?>" class="form-label">Firstname <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="firstname" id="firstname<?php echo $user["id"]; ?>" value="<?php echo $user["firstname"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="lastname<?php echo $user["id"]; ?>" class="form-label">Lastname <sup class="text-danger">*</sup></label>
+                            <label for="lastname<?php echo $user["id"]; ?>" class="form-label">Lastname <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="lastname" id="lastname<?php echo $user["id"]; ?>" value="<?php echo $user["lastname"]; ?>" required>
                           </div>
 
-                          <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin<?php echo $user["id"]; ?>"<?php echo $user["is_admin"] ? " checked" : ""; ?>>
-                            <label class="form-check-label" for="is_admin<?php echo $user["id"]; ?>">Is Admin <sup class="text-danger">*</sup></label>
+                          <div class="mb-3">
+                            <label for="origin<?php echo $user["id"]; ?>" class="form-label">Origin</label>
+                            <input type="text" class="form-control" name="origin" id="origin<?php echo $user["id"]; ?>" value="<?php echo $user["origin"]; ?>" required>
                           </div>
 
-                          <div class="mb-3 form-check">
+                          <div class="mb-3">
+                            <label for="description<?php echo $user["id"]; ?>" class="form-label">Description</label>
+                            <textarea class="form-control" form="userEditForm<?php echo $user["id"]; ?>" id="description<?php echo $user["id"]; ?>" name="description" rows="3" placeholder="Description..."><?php echo $user["description"]; ?></textarea>
+                          </div>
+
+                          <div class="mb-3 form-check form-switch">
+                            <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin<?php echo $user["id"]; ?>"<?php echo $user["is_admin"] ? " checked" : ""; ?>>
+                            <label class="form-check-label" for="is_admin<?php echo $user["id"]; ?>">Is Admin <span class="text-danger">*</span></label>
+                          </div>
+
+                          <div class="mb-3 form-check form-switch">
                             <input type="checkbox" class="form-check-input" name="is_verified" id="is_verified<?php echo $user["id"]; ?>"<?php echo $user["is_verified"] ? " checked" : ""; ?>>
-                            <label class="form-check-label" for="is_verified<?php echo $user["id"]; ?>">Is Verified <sup class="text-danger">*</sup></label>
+                            <label class="form-check-label" for="is_verified<?php echo $user["id"]; ?>">Is Verified <span class="text-danger">*</span></label>
                           </div>
 
                           <input type="hidden" name="id" value="<?php echo $user["id"]; ?>" />

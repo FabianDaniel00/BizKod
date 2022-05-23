@@ -29,38 +29,38 @@
 			<hr style="border-top: 1px groovy #000;">
 
 			<div class="form-group mb-3">
-				<label class="form-label">Email <sup class="text-danger">*</sup></label>
-				<input type="email" class="form-control" name="email" placeholder="example@mail.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
+				<label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+				<input id="email" type="email" class="form-control" name="email" placeholder="example@mail.com" value="<?php echo $has_inputs ? $inputs["email"] : ""; ?>" required />
 			</div>
 
 			<div class="form-group mb-3">
-				<label class="form-label">Firstname <sup class="text-danger">*</sup></label>
-				<input type="text" class="form-control" name="firstname" placeholder="Jon" value="<?php echo $has_inputs ? $inputs["firstname"] : ""; ?>" required />
+				<label class="form-label" for="firstname">Firstname <span class="text-danger">*</span></label>
+				<input id="firstname" type="text" class="form-control" name="firstname" placeholder="Jon" value="<?php echo $has_inputs ? $inputs["firstname"] : ""; ?>" required />
 			</div>
 
 			<div class="form- mb-3">
-				<label class="form-label">Lastname <sup class="text-danger">*</sup></label>
-				<input type="text" class="form-control" name="lastname" placeholder="Doe" value="<?php echo $has_inputs ? $inputs["lastname"] : ""; ?>" required />
+				<label class="form-label" for="lastname">Lastname <span class="text-danger">*</span></label>
+				<input id="lastname" type="text" class="form-control" name="lastname" placeholder="Doe" value="<?php echo $has_inputs ? $inputs["lastname"] : ""; ?>" required />
 			</div>
 
 			<div class="form- mb-3">
-				<label class="form-label">Origin <sup class="text-danger">*</sup></label>
-				<input type="text" class="form-control" name="origin" placeholder="Subotica" value="<?php echo $has_inputs ? $inputs["origin"] : ""; ?>" required />
+				<label class="form-label" for="origin">Origin</label>
+				<input id="origin" type="text" class="form-control" name="origin" placeholder="Subotica" value="<?php echo $has_inputs ? $inputs["origin"] : ""; ?>" required />
 			</div>
 
 			<div class="mb-3">
-				<label for="description" class="form-label">Description <sup class="text-danger">*</sup></label>
+				<label for="description" class="form-label">Description</label>
 				<textarea class="form-control" form="register" id="description" name="description" rows="3" placeholder="Description..."><?php echo $has_inputs ? $inputs["origin"] : ""; ?></textarea>
 			</div>
 
 			<div class="form-group mb-3">
-				<label class="form-label">Password <sup class="text-danger">*</sup></label>
-				<input type="password" class="form-control" name="password" placeholder="password..." minlength="6" required />
+				<label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+				<input id="password" type="password" class="form-control" name="password" placeholder="password..." minlength="6" required />
 			</div>
 
 			<div class="form-group mb-3">
-				<label class="form-label">Confirm Password <sup class="text-danger">*</sup></label>
-				<input type="password" class="form-control" name="confirm_password" placeholder="confirm password..." minlength="6" required />
+				<label class="form-label" for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
+				<input id="confirm_password" type="password" class="form-control" name="confirm_password" placeholder="confirm password..." minlength="6" required />
 			</div>
 
 			<br />

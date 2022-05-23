@@ -51,37 +51,37 @@
             <div class="modal-body">
               <form id="userInsertForm" action="location-admin-query.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
-                  <label for="name" class="form-label">Name <sup class="text-danger">*</sup></label>
+                  <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                   <input type="name" class="form-control" name="name" id="name" value="<?php echo $has_inputs ? $inputs["name"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="lat" class="form-label">Lat <sup class="text-danger">*</sup></label>
+                  <label for="lat" class="form-label">Lat <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="lat" id="lat" value="<?php echo $has_inputs ? $inputs["lat"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="lon" class="form-label">Lng <sup class="text-danger">*</sup></label>
+                  <label for="lon" class="form-label">Lng <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="lon" id="lon" value="<?php echo $has_inputs ? $inputs["lon"] : ""; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="description" class="form-label">Description <sup class="text-danger">*</sup></label>
-                  <textarea class="form-control" id="description" form="userInsertForm" name="description" rows="3" placeholder="Description..."><?php echo $has_inputs ? $inputs["description"] : ""; ?></textarea>
+                  <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+                  <textarea class="form-control" id="description" form="userInsertForm" name="description" rows="3" placeholder="Description..." required><?php echo $has_inputs ? $inputs["description"] : ""; ?></textarea>
                 </div>
 
                 <div class="mb-3">
-                  <label for="map_url" class="form-label">Map url <sup class="text-danger">*</sup></label>
+                  <label for="map_url" class="form-label">Map url <span class="text-danger">*</span></label>
                   <textarea class="form-control" id="map_url" form="userInsertForm" name="map_url" rows="3" placeholder="Map url..."><?php echo $has_inputs ? $inputs["map_url"] : ""; ?></textarea>
                 </div>
 
                 <div class="mb-3">
-                  <label for="formFile" class="form-label">Picture <sup class="text-danger">*</sup></label>
+                  <label for="formFile" class="form-label">Picture <span class="text-danger">*</span></label>
                   <input class="form-control" type="file" id="formFile" name="picture">
                 </div>
 
                 <div class="mb-3">
-                  <label for="type" class="form-label">Type <sup class="text-danger">*</sup></label>
+                  <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
                   <select class="form-select" name="type" id="type">
                     <option value="-1" selected>Select one type</option>
                     <option value="church"<?php if($has_inputs) echo $inputs["type"] == "church" ? " selected" : ""; ?>>Church</option>
@@ -169,37 +169,37 @@
                       <div class="modal-body">
                         <form id="userEditForm<?php echo $location["id"]; ?>" action="location-admin-query.php" method="POST" enctype="multipart/form-data">
                           <div class="mb-3">
-                            <label for="name<?php echo $location["id"]; ?>" class="form-label">Name <sup class="text-danger">*</sup></label>
+                            <label for="name<?php echo $location["id"]; ?>" class="form-label">Name <span class="text-danger">*</span></label>
                             <input type="name" class="form-control" name="name" id="name<?php echo $location["id"]; ?>" value="<?php echo $location["name"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="lat<?php echo $location["id"]; ?>" class="form-label">Lat <sup class="text-danger">*</sup></label>
+                            <label for="lat<?php echo $location["id"]; ?>" class="form-label">Lat <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="lat" id="lat<?php echo $location["id"]; ?>" value="<?php echo $location["lat"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="lon<?php echo $location["id"]; ?>" class="form-label">Lng <sup class="text-danger">*</sup></label>
+                            <label for="lon<?php echo $location["id"]; ?>" class="form-label">Lng <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="lon" id="lon<?php echo $location["id"]; ?>" value="<?php echo $location["lon"]; ?>" required>
                           </div>
 
                           <div class="mb-3">
-                            <label for="description<?php echo $location["id"]; ?>" class="form-label">Description <sup class="text-danger">*</sup></label>
-                            <textarea class="form-control" form="userEditForm<?php echo $location["id"]; ?>" id="description<?php echo $location["id"]; ?>" name="description" rows="3" placeholder="Description..."><?php echo $location["description"]; ?></textarea>
+                            <label for="description<?php echo $location["id"]; ?>" class="form-label">Description <span class="text-danger">*</span></label>
+                            <textarea class="form-control" form="userEditForm<?php echo $location["id"]; ?>" id="description<?php echo $location["id"]; ?>" name="description" rows="3" placeholder="Description..." required><?php echo $location["description"]; ?></textarea>
                           </div>
 
                           <div class="mb-3">
-                            <label for="map_url<?php echo $location["id"]; ?>" class="form-label">Map url <sup class="text-danger">*</sup></label>
+                            <label for="map_url<?php echo $location["id"]; ?>" class="form-label">Map url <span class="text-danger">*</span></label>
                             <textarea class="form-control" form="userEditForm<?php echo $location["id"]; ?>" id="map_url<?php echo $location["id"]; ?>" name="map_url" rows="3" placeholder="Map url..."><?php echo $location["map"]; ?></textarea>
                           </div>
 
                           <div class="mb-3">
-                            <label for="formFile<?php echo $location["id"]; ?>" class="form-label">Picture <sup class="text-danger">*</sup></label>
+                            <label for="formFile<?php echo $location["id"]; ?>" class="form-label">Picture <span class="text-danger">*</span></label>
                             <input class="form-control" type="file" id="formFile<?php echo $location["id"]; ?>" name="picture">
                           </div>
 
                           <div class="mb-3">
-                            <label for="description<?php echo $location["id"]; ?>" class="form-label">Type <sup class="text-danger">*</sup></label>
+                            <label for="description<?php echo $location["id"]; ?>" class="form-label">Type <span class="text-danger">*</span></label>
                             <select id="description<?php echo $location["id"]; ?>" class="form-select" name="type">
                               <option value="-1">Select one type</option>
                               <option value="church"<?php echo $location["type"] == "church" ? " selected" : ""; ?>>Church</option>

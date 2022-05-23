@@ -24,13 +24,13 @@
 			<hr style="border-top: 1px groovy #000;">
 
 			<div class="form-group mb-3">
-				<label class="form-label">New Password</label>
-				<input type="password" class="form-control" name="password" placeholder="new password..." required />
+				<label class="form-label" for="password">New Password</label>
+				<input id="password" type="password" class="form-control" name="password" placeholder="new password..." required />
 			</div>
 
 			<div class="form-group mb-3">
-				<label class="form-label">Confirm New Password</label>
-				<input type="password" class="form-control" name="confirm_password" placeholder="confirm new password..." required />
+				<label class="form-label" for="confirm_password">Confirm New Password</label>
+				<input id="confirm_password" type="password" class="form-control" name="confirm_password" placeholder="confirm new password..." required />
 			</div>
 
 			<input type="hidden" name="verification_code" value="<?php echo $_GET["verification_code"]; ?>" />

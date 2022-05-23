@@ -76,7 +76,10 @@
 				</div>
 
 				<div class="filters-grid--submit text-center mt-3">
-					<input type="submit" class="btn btn-info" />
+					<button type="submit" class="btn btn-primary">
+						<i class="fa-solid fa-filter me-1"></i>
+						Submit
+					</button>
 				</div>
 			</div>
 		</form>

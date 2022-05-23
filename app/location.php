@@ -81,12 +81,12 @@
 			<hr style="border-top: 1px groovy #000;">
 
 			<div class="form-group mb-3">
-				<label class="form-label">Message <sup class="text-danger">*</sup></label>
+				<label class="form-label">Message <span class="text-danger">*</span></label>
 				<textarea class="form-control" form="feedback-form" name="message" rows="3" placeholder="Write what you think about this place..."><?php echo $has_inputs ? $inputs["message"] : ""; ?></textarea>
 			</div>
 
 			<div class="form-group mb-3">
-        <label class="form-label">Rateing <sup class="text-danger">*</sup></label>
+        <label class="form-label">Rateing <span class="text-danger">*</span></label>
         <div class="d-flex w-full justify-content-between text-muted">
           <span>1</span>
           <span>2</span>

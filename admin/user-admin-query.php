@@ -10,6 +10,8 @@
       $email = $_POST["email"];
       $firstname = $_POST["firstname"];
       $lastname = $_POST["lastname"];
+      $origin = $_POST["origin"];
+      $description = $_POST["description"];
       $plain_password = $_POST["password"];
       $is_admin = isset($_POST["is_admin"]) ? 1 : 0;
       $is_verified = isset($_POST["is_verified"]) ? 1 : 0;
@@ -17,12 +19,14 @@
       if ($email != "" && $firstname != "" && $lastname != "" && $plain_password != "" && $is_admin != "" && $is_verified != "") {
         try {
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $sql = "INSERT INTO `user` (`email`, `firstname`, `lastname`, `password`, `is_admin`, `is_verified`) VALUES (?, ?, ?, ?, ?, ?);";
+          $sql = "INSERT INTO `user` (`email`, `firstname`, `lastname`, `origin`, `description`, `password`, `is_admin`, `is_verified`) VALUES (?, ?, ?, ?, ?, ?);";
           $query = $conn->prepare($sql);
           $query->execute([
             $email,
             $firstname,
             $lastname,
+            $origin ?: NULL,
+            $description ?: NULL,
 					  password_hash($plain_password, PASSWORD_BCRYPT),
             $is_admin,
             $is_verified,
@@ -35,17 +39,17 @@
           } else {
             $conn = null;
 
-            return send_message("Something went wrong. Try again.", "danger", "user-admin", [$email, $firstname, $lastname, $is_admin, $is_verified]);
+            return send_message("Something went wrong. Try again.", "danger", "user-admin", [$email, $firstname, $lastname, $origin, $description, $is_admin, $is_verified]);
           }
         } catch(PDOException $e) {
           $conn = null;
 
-          return send_message($e->getMessage(), "danger", "user-admin", [$email, $firstname, $lastname, $is_admin, $is_verified]);
+          return send_message($e->getMessage(), "danger", "user-admin", [$email, $firstname, $lastname, $origin, $description, $is_admin, $is_verified]);
         }
       } else {
         $conn = null;
 
-        return send_message("Missing data.", "danger", "user-admin", [$email, $firstname, $lastname, $is_admin, $is_verified]);
+        return send_message("Missing data.", "danger", "user-admin", [$email, $firstname, $lastname, $origin, $description, $is_admin, $is_verified]);
       }
     }
 
@@ -55,18 +59,22 @@
       $email = $_POST["email"];
       $firstname = $_POST["firstname"];
       $lastname = $_POST["lastname"];
+      $origin = $_POST["origin"];
+      $description = $_POST["description"];
       $is_admin = isset($_POST["is_admin"]) ? 1 : 0;
       $is_verified = isset($_POST["is_verified"]) ? 1 : 0;
 
       if ($id != "" && $email != "" && $firstname != "" && $lastname != "" && $is_admin != "" && $is_verified != "") {
         try {
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $sql = "UPDATE `user` SET `email` = ?, `firstname` = ?, `lastname` = ?, `is_admin` = ?, `is_verified` = ? WHERE `id` = ?;";
+          $sql = "UPDATE `user` SET `email` = ?, `firstname` = ?, `lastname` = ?, `origin`, `description`, `is_admin` = ?, `is_verified` = ? WHERE `id` = ?;";
           $query = $conn->prepare($sql);
           $query->execute([
             $email,
             $firstname,
             $lastname,
+            $origin ?: NULL,
+            $description ?: NULL,
             $is_admin,
             $is_verified,
             $id,
